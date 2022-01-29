@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
 import './App.css';
+import { Button } from './components/Button';
+
+const StyledButton = styled(Button)`
+  margin: 5px;
+`
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StyledButton variant="darkBlue">View our work</StyledButton>
+      <Button variant='lightBlue' width="full">View our wor</Button>
+      <Button variant="darkYellow" width={350}>View our wor</Button>
+      <Button variant='lightYellow' width={150}>View our wor</Button>
     </div>
   );
 }
 
 export default App;
+
