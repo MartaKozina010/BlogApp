@@ -1,8 +1,8 @@
 import { isWhiteSpaceLike } from "typescript";
 
-export type Color = keyof typeof colors;
+export type Color = keyof typeof buttonColors;
 
-export const colors = {
+export const buttonColors = {
     "darkBlue": "#282938",
     "lightBlue": "#535460",
     "darkYellow": "#FCD980",
@@ -14,9 +14,9 @@ export const getContrastColor = (color: Color) => {
     switch (color) {
         case "darkBlue":
         case "lightBlue":
-            return colors.white;
+            return buttonColors.white;
         default:
-            return colors.darkBlue;
+            return buttonColors.darkBlue;
     }
 }
 
