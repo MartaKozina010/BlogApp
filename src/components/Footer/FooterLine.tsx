@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter";
 import { pageTabs } from "../pageTabs";
+import { colors } from "../../utils/appColors";
 
 const FooterLineContainer = styled.div`
     display: flex;
     align-items: center;  
     height: 92px;
-    background-color: white;
-    color: #1C1E53;
+    background-color: ${colors.white};
+    color: ${colors.darkBlue};
     font-size: 15px;
     font-weight: 500;
 `
@@ -22,7 +23,7 @@ const Webmarks = styled.div`
 
     a{
     text-decoration: none;
-    color: #1C1E53;
+    color: ${colors.darkBlue};
     font-size: 15px;
     font-weight: 500;
     margin-right: 32px;
@@ -30,7 +31,7 @@ const Webmarks = styled.div`
 
     a:hover{
     text-decoration: underline;
-    text-decoration-color: hotpink;
+    text-decoration-color: ${colors.hotPink};
     }
 `
 
