@@ -3,11 +3,13 @@ import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter";
 import { SocialMediaLink, SocialMediaLogo } from "../../utils/SocialMedia";
 import { FooterLine } from "./FooterLine";
+import { colors } from "../../utils/appColors";
+
 
 const FooterContainer = styled.div`
     height: 397px;
     width: 100%;
-    background-color: #1C1E53;
+    background-color: ${colors.darkBlue};
     display: flex;
     align-items: end;
 `
@@ -20,9 +22,9 @@ const ContentContainer = styled(ContentWidthLimiter)`
 const ContactContainer = styled.div`
     height: 95px;
     width: 517px;
-    background-color: #FCD980;
+    background-color: ${colors.sunnyYellow};
     display: flex;
-    color: #1C1E53;
+    color: ${colors.darkBlue};
     margin-top: 86px;
     align-items: flex-end;
 
@@ -39,10 +41,11 @@ const ContactContainer = styled.div`
 `
 const LogoContainer = styled.div`
     p{
-    color: #F4F6FC;
+    color: ${colors.paragraphWhite};
     font-size: 16px;
     line-height: 28px;
     margin-top: 22px; 
+    width: 400px;
     }
 `
 
@@ -60,12 +63,13 @@ const PhoneContact = styled.div`
 `
 
 const RightSide = styled.div`
-    color: #F4F6FC;
+    color: ${colors.paragraphWhite};
     margin-left: 200px;
 
     p{
     font-size: 15px;
     line-height: 28px;
+    width: 400px;
     }
 
     h1{
@@ -98,8 +102,7 @@ export const Footer = () => {
                     <LeftSide>
                         <LogoContainer>
                             <FinsweetLogo />
-                            <p>We are always open to discuss your project and<br />
-                                improve your online presence.</p>
+                            <p>We are always open to discuss your project and improve your online presence.</p>
                         </LogoContainer>
                         <ContactContainer>
                             <EmailContact>
@@ -114,9 +117,7 @@ export const Footer = () => {
                     </LeftSide>
                     <RightSide>
                         <h1>Let's talk!</h1>
-                        <p>We are always open to discuss your project, <br />
-                            improve your online presence and help with your <br />
-                            UX/UI design challanges.</p>
+                        <p>We are always open to discuss your project, improve your online presence and help with your UX/UI design challanges.</p>
                         <SocialMediaContainer>
                             <a href={SocialMediaLink.facebook}><SocialMediaLogo logo="facebook" /></a>
                             <a href={SocialMediaLink.twitter}><SocialMediaLogo logo="twitter" /></a>
@@ -126,9 +127,7 @@ export const Footer = () => {
                     </RightSide>
                 </ContentContainer>
             </FooterContainer>
-            {/* <ContentContainer> */}
-                <FooterLine />
-            {/* </ContentContainer> */}
+            <FooterLine />
         </AllContainer>
     )
 }

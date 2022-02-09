@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors } from '../../utils/appColors';
 
 type LinkHeaderProps = {
     link: string
@@ -10,13 +11,13 @@ const StyledLinkHeader = styled.a`
     font-family: unset;
     font-size: 16px;
     font-weight: 500;
-    color: #BBBBCB;
+    color: ${colors.lightGrey};
     text-decoration: none;
     margin-left: 32px;
 
    &:hover {
     text-decoration: underline;
-    text-decoration-color: hotpink;
+    text-decoration-color: ${colors.hotPink};
    } 
 `
 
