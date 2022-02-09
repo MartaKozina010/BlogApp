@@ -42,6 +42,11 @@ const ContactUsLink = styled.a`
   margin-left: 48px;
 `
 
+const SearchComponent = styled.img`
+  position: absolute;
+  margin-left: 20px;
+`
+
 export const Header = () => {
   return (
     <HeaderContainer>
@@ -55,6 +60,7 @@ export const Header = () => {
           <a href={pageTabs.faq}>FAQ</a>
           <a href={pageTabs.blog}>Blog</a>
           <ContactUsLink href={pageTabs.contactUs}>Contact us</ContactUsLink>
+          <SearchComponent src="bitcoin.png" />
         </LinksContainer>
       </ContentContainer>
     </HeaderContainer>
