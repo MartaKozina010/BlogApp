@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { css } from 'styled-components';
-import { buttonColors, getContrastColor } from '../utils/buttonColors';
+import React from "react"
+import styled, { css } from "styled-components"
+import { buttonColors, getContrastColor } from "../utils/buttonColors"
 
 type ButtonProps = {
   width?: "full" | number
@@ -17,7 +17,7 @@ const StyledButton = styled.button<ButtonProps>`
   font-size: 18px;
   font-weight: 500;
 
-  ${props => css`
+  ${(props) => css`
     width: ${props.width === "full" ? "100%" : `${props.width}px`};
     background-color: ${buttonColors[props.variant]};
     color: ${getContrastColor(props.variant)};
@@ -29,6 +29,15 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `
 
-export const Button: React.FC<ButtonProps> = ({ width = 220, variant, className, children }) => {
-  return <StyledButton width={width} variant={variant} className={className}>{children}</StyledButton>
+export const Button: React.FC<ButtonProps> = ({
+  width = 220,
+  variant,
+  className,
+  children,
+}) => {
+  return (
+    <StyledButton width={width} variant={variant} className={className}>
+      {children}
+    </StyledButton>
+  )
 }
