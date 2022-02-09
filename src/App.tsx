@@ -4,6 +4,7 @@ import { Header } from "./components/Header/Header"
 import { MainArticle } from "./components/Content/MainArticle"
 import { SingleArticle } from "./components/Content/SingleArticle"
 import { ArticleContainer } from "./components/Content/ArticleContainer"
+import { Search } from "./components/Header/Search"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       />
       <ArticleContainer />
       <Footer />
+      <Search />
     </div>
   )
 }
