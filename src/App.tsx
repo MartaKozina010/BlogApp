@@ -18,25 +18,10 @@ function App() {
       for the sky was a dead black, and the stars had ceased to twinkle. 
       By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside.'
       />
-
-      {/* <SingleArticle 
-      image='https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg'
-      postedDate={new Date(2020,10,11)}
-      title='How one Webflow user grew his single person consultancy from $0-100K in 14 months'
-      description='See how pivoting to Webflow changed one person sales strategy and allowed him to attract'/> */}
-
       <ArticleContainer/>
-
       <Footer />
     </div>
   );
 }
 
 export default App;
-
-type SingleArticleProps = {
-  image: string,
-  postedDate: Date,
-  title: string,
-  description: string
-}
