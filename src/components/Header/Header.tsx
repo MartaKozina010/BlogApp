@@ -3,6 +3,8 @@ import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { pageTabs } from "../pageTabs"
 import { colors } from "../../utils/appColors"
+import { useEffect, useState } from "react"
+import React from "react"
 
 const HeaderContainer = styled.div`
   height: 90px;
@@ -42,12 +44,66 @@ const ContactUsLink = styled.a`
   margin-left: 48px;
 `
 
-const SearchComponent = styled.img`
+const SearchBurger = styled.img`
   position: absolute;
   margin-left: 20px;
 `
 
+const SearchInput = styled.input`
+  width: 50px;
+  transition: width 2s;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  margin-right: 0;
+  margin-left: 55px;
+  padding-left: 5px;
+
+  ::placeholder {
+    color: ${colors.darkBlue};
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: ${colors.paragraphWhite};
+    width: 200px;
+  }
+`
+
 export const Header = () => {
+  const [renderSearch, setRenderSearch] = useState(false)
+  const [currentIcon, setCurrentIcon] = useState("burger3.png")
+  const [input, setInput] = useState("")
+
+  const searchInput = React.useRef<HTMLInputElement>(null)
+
+  const focusHandler = () => {
+    searchInput?.current?.focus()
+  }
+  const hideAndCleanInput = () => {
+    if (document.activeElement !== searchInput.current) {
+      setTimeout(() => {
+        setRenderSearch(false)
+        setInput("")
+      }, 3000)
+    }
+  }
+
+  useEffect(() => {
+    renderSearch && focusHandler()
+  }, [renderSearch])
+
+  const showSearch = () => {
+    setCurrentIcon("food.png")
+    setRenderSearch(true)
+    focusHandler()
+  }
+
+  const hideSearch = () => {
+    setCurrentIcon("burger3.png")
+    setRenderSearch(false)
+  }
+
   return (
     <HeaderContainer>
       <ContentContainer>
@@ -60,8 +116,20 @@ export const Header = () => {
           <a href={pageTabs.faq}>FAQ</a>
           <a href={pageTabs.blog}>Blog</a>
           <ContactUsLink href={pageTabs.contactUs}>Contact us</ContactUsLink>
-          <SearchComponent src="bitcoin.png" />
+          <SearchBurger
+            src={currentIcon}
+            onClick={renderSearch ? hideSearch : showSearch}
+          />
         </LinksContainer>
+        {renderSearch && (
+          <SearchInput
+            ref={searchInput}
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="search"
+            onBlur={hideAndCleanInput}
+          />
+        )}
       </ContentContainer>
     </HeaderContainer>
   )
