@@ -44,7 +44,7 @@ const ContactUsLink = styled.a`
   margin-left: 48px;
 `
 
-const SearchBurger = styled.img`
+const SearchComponent = styled.img`
   position: absolute;
   margin-left: 20px;
 `
@@ -116,8 +116,8 @@ export const Header = () => {
           <a href={pageTabs.faq}>FAQ</a>
           <a href={pageTabs.blog}>Blog</a>
           <ContactUsLink href={pageTabs.contactUs}>Contact us</ContactUsLink>
-          <SearchBurger
-            src={currentIcon}
+          <SearchComponent
+            src="burger3.png"
             onClick={renderSearch ? hideSearch : showSearch}
           />
         </LinksContainer>
