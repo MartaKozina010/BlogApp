@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { pageTabs } from "../pageTabs"
 import { colors } from "../../utils/appColors"
+import { Link } from "react-router-dom"
 
 const FooterLineContainer = styled.div`
   display: flex;
@@ -41,12 +42,12 @@ export const FooterLine = () => {
       <ContentContainer>
         <p>Copyright 2021, Finsweet.com</p>
         <Webmarks>
-          <a href={pageTabs.home}>Home</a>
-          <a href={pageTabs.aboutUs}>About us</a>
-          <a href={pageTabs.features}>Features</a>
-          <a href={pageTabs.pricing}>Pricing</a>
-          <a href={pageTabs.faq}>FAQ</a>
-          <a href={pageTabs.blog}>Blog</a>
+          <Link to="/">Home</Link>
+          <Link to="aboutUs">About us</Link>
+          <Link to="features">Features</Link>
+          <Link to="pricing">Pricing</Link>
+          <Link to="faq">FAQ</Link>
+          <Link to="blog">Blog</Link>
         </Webmarks>
       </ContentContainer>
     </FooterLineContainer>

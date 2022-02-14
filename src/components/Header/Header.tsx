@@ -5,6 +5,7 @@ import { pageTabs } from "../pageTabs"
 import { colors } from "../../utils/appColors"
 import { useEffect, useState } from "react"
 import React from "react"
+import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
 
 const HeaderContainer = styled.div`
   height: 90px;
@@ -18,7 +19,7 @@ const ContentContainer = styled(ContentWidthLimiter)`
   align-items: center;
 `
 
-const LinksContainer = styled.span`
+const LinksContainer = styled.nav`
   margin-left: auto;
 
   a {
@@ -26,7 +27,6 @@ const LinksContainer = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: ${colors.lightGrey};
-    text-decoration: none;
     margin-left: 32px;
   }
 
@@ -34,14 +34,6 @@ const LinksContainer = styled.span`
     text-decoration: underline;
     text-decoration-color: ${colors.hotPink};
   }
-`
-
-const ContactUsLink = styled.a`
-  border: 2px solid ${colors.darkGrey};
-  color: ${colors.white} !important;
-  border-radius: 50px;
-  padding: 16px 48px;
-  margin-left: 48px;
 `
 
 const SearchComponent = styled.img`
@@ -70,12 +62,53 @@ const SearchInput = styled.input`
   }
 `
 
+const StyledLink = styled(({ isActive, ...props }) => <Link {...props} />)<{
+  isActive: boolean
+}>`
+  text-decoration: ${(props) => (props.isActive ? "underline" : "none")};
+  text-decoration-color: ${(props) => props.isActive && colors.hotPink};
+`
+
+const StyledContactUsLink = styled(({ isActive, ...props }) => (
+  <Link {...props} />
+))<{ isActive: boolean }>`
+  text-decoration: ${(props) => (props.isActive ? "underline" : "none")};
+  text-decoration-color: ${(props) => props.isActive && colors.hotPink};
+  border: 2px solid ${colors.darkGrey};
+  color: ${colors.white} !important;
+  border-radius: 50px;
+  padding: 16px 48px;
+  margin-left: 48px;
+`
+
 export const Header = () => {
   const [renderSearch, setRenderSearch] = useState(false)
   const [currentIcon, setCurrentIcon] = useState("burger3.png")
   const [input, setInput] = useState("")
 
   const searchInput = React.useRef<HTMLInputElement>(null)
+
+  const CustomLink = ({ children, ...props }: LinkProps) => {
+    const resolved = useResolvedPath(props.to)
+    const match = useMatch({ path: resolved.pathname, end: true })
+
+    return (
+      <StyledLink isActive={!!match} {...props}>
+        {children}
+      </StyledLink>
+    )
+  }
+
+  const CustomContactUsLink = ({ children, ...props }: LinkProps) => {
+    const resolved = useResolvedPath(props.to)
+    const match = useMatch({ path: resolved.pathname, end: true })
+
+    return (
+      <StyledContactUsLink isActive={!!match} {...props}>
+        {children}
+      </StyledContactUsLink>
+    )
+  }
 
   const focusHandler = () => {
     searchInput?.current?.focus()
@@ -109,13 +142,13 @@ export const Header = () => {
       <ContentContainer>
         <FinsweetLogo />
         <LinksContainer>
-          <a href={pageTabs.home}>Home</a>
-          <a href={pageTabs.aboutUs}>About us</a>
-          <a href={pageTabs.features}>Features</a>
-          <a href={pageTabs.pricing}>Pricing</a>
-          <a href={pageTabs.faq}>FAQ</a>
-          <a href={pageTabs.blog}>Blog</a>
-          <ContactUsLink href={pageTabs.contactUs}>Contact us</ContactUsLink>
+          <CustomLink to="/">Home</CustomLink>
+          <CustomLink to="aboutUs">About us</CustomLink>
+          <CustomLink to="features">Features</CustomLink>
+          <CustomLink to="pricing">Pricing</CustomLink>
+          <CustomLink to="faq">FAQ</CustomLink>
+          <CustomLink to="blog">Blog</CustomLink>
+          <CustomContactUsLink to="contactUs">Contact us</CustomContactUsLink>
           <SearchComponent
             src="burger3.png"
             onClick={renderSearch ? hideSearch : showSearch}

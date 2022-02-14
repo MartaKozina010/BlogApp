@@ -3,23 +3,32 @@ import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
 import { MainArticle } from "./components/Content/MainArticle"
 import { ArticleContainer } from "./components/Content/ArticleContainer"
+import { Route, Routes } from "react-router-dom"
+import { Home } from "./components/Pages/Home"
+import { AboutUs } from "./components/Pages/AboutUs"
+import { Features } from "./components/Pages/Features"
+import { Pricing } from "./components/Pages/Pricing"
+import { Faq } from "./components/Pages/Faq"
+import { Blog } from "./components/Pages/Blog"
+import { ContactUs } from "./components/Pages/ContactUs"
+import { InputTest } from "./components/Header/InputTest"
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <MainArticle
-        title="A UX Case Study on Creating a Studious Environment for Students"
-        author="Andrew Jonson"
-        postedDate={new Date(2021, 12, 15)}
-        image="https://marketingprzykawie.pl/wp-content/uploads/2015/01/glod_small.jpg"
-        description="Apparently we had reached a great height in the atmosphere, 
-      for the sky was a dead black, and the stars had ceased to twinkle. 
-      By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside."
-      />
-      <ArticleContainer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="aboutUs" element={<AboutUs />} />
+        <Route path="features" element={<Features />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="faq" element={<Faq />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="contactUs" element={<ContactUs />} />
+      </Routes>
+      <InputTest />
       <Footer />
-    </div>
+    </>
   )
 }
 
