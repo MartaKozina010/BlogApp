@@ -1,7 +1,6 @@
 import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { pageTabs } from "../pageTabs"
 import { colors } from "../../utils/appColors"
 import { useEffect, useState } from "react"
 import React from "react"
@@ -13,6 +12,7 @@ const HeaderContainer = styled.div`
   background-color: ${colors.darkBlue};
   display: flex;
   align-items: center;
+  margin-bottom: 80px;
 `
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;

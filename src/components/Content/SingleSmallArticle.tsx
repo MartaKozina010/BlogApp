@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { colors } from "../../utils/appColors"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 
-type SingleArticleProps = {
+type SingleSmallArticleProps = {
   image?: string
   postedDate?: Date
   title?: string
@@ -65,7 +65,9 @@ const SingleArticleContainer = styled.div`
   }
 `
 
-export const SingleArticle: React.FC<SingleArticleProps> = (props) => {
+export const SingleSmallArticle: React.FC<SingleSmallArticleProps> = (
+  props
+) => {
   const {
     image = "https://us.123rf.com/450wm/deagreez/deagreez1905/deagreez190501463/122178757-pleine-longueur-c%C3%B4t%C3%A9-profil-taille-du-corps-photo-funky-dr%C3%B4le-elle-lui-il-lui-son-gars-dame-sauter-h.jpg?ver=6",
     postedDate = new Date(2015, 11, 11),

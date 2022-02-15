@@ -1,8 +1,6 @@
 import "./App.css"
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
-import { MainArticle } from "./components/Content/MainArticle"
-import { ArticleContainer } from "./components/Content/ArticleContainer"
 import { Route, Routes } from "react-router-dom"
 import { Home } from "./components/Pages/Home"
 import { AboutUs } from "./components/Pages/AboutUs"
@@ -11,7 +9,6 @@ import { Pricing } from "./components/Pages/Pricing"
 import { Faq } from "./components/Pages/Faq"
 import { Blog } from "./components/Pages/Blog"
 import { ContactUs } from "./components/Pages/ContactUs"
-import { InputTest } from "./components/Header/InputTest"
 
 function App() {
   return (
@@ -26,7 +23,6 @@ function App() {
         <Route path="blog" element={<Blog />} />
         <Route path="contactUs" element={<ContactUs />} />
       </Routes>
-      <InputTest />
       <Footer />
     </>
   )
