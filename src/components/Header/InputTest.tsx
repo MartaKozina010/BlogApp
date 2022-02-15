@@ -29,7 +29,3 @@ export const InputTest = () => {
     </>
   )
 }
-
-// const results = tab.filter(el => el.includes(input));
-
-// const tabWrite = tab.forEach(el => <div>{el.toUpperCase}</div>)

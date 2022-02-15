@@ -91,6 +91,7 @@ const SocialMediaContainer = styled.div`
 const AllContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
 `
 
 export const Footer = () => {
