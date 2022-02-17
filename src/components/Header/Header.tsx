@@ -41,7 +41,7 @@ const SearchComponent = styled.img`
   margin-left: 20px;
 `
 
-const SearchInput = styled.input`
+const SearchInput = styled.input<{ isShowed: boolean }>`
   width: 50px;
   transition: width 2s;
   height: 40px;
@@ -49,16 +49,13 @@ const SearchInput = styled.input`
   border-radius: 50px;
   margin-right: 0;
   margin-left: 55px;
-  padding-left: 5px;
+  padding-left: ${({ isShowed }) => (isShowed ? "5px" : "0px")};
+  width: ${({ isShowed }) => (isShowed ? "200px" : "0px")};
+  transition: all 2s;
 
   ::placeholder {
     color: ${colors.darkBlue};
     font-weight: 500;
-  }
-
-  &:hover {
-    background-color: ${colors.paragraphWhite};
-    width: 200px;
   }
 `
 
@@ -154,15 +151,15 @@ export const Header = () => {
             onClick={renderSearch ? hideSearch : showSearch}
           />
         </LinksContainer>
-        {renderSearch && (
-          <SearchInput
-            ref={searchInput}
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-            placeholder="search"
-            onBlur={hideAndCleanInput}
-          />
-        )}
+
+        <SearchInput
+          isShowed={renderSearch}
+          ref={searchInput}
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+          placeholder="search"
+          onBlur={hideAndCleanInput}
+        />
       </ContentContainer>
     </HeaderContainer>
   )

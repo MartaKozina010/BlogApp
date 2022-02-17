@@ -1,8 +1,8 @@
-import { EntireArticle } from "../Content/EntireArticle"
+import { BlogArticle } from "../PagesComponents/BlogComponents/BlogArticle"
 
 export const Blog = () => {
   return (
-    <EntireArticle
+    <BlogArticle
       title="Esta es una prueba que la música trasciende fronteras e idiomas"
       author="Wlavimir Putin Put-on"
       postedDate={new Date(2020, 5, 17)}
@@ -74,6 +74,6 @@ export const Blog = () => {
         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-    </EntireArticle>
+    </BlogArticle>
   )
 }

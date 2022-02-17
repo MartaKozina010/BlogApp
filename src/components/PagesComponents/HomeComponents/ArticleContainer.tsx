@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
+import { colors } from "../../../utils/appColors"
+import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { SingleSmallArticle } from "./SingleSmallArticle"
-import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   max-width: 1280px;

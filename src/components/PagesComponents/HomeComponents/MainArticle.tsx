@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
-import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
+import { colors } from "../../../utils/appColors"
+import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ArticleHeader } from "./ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
@@ -32,6 +32,7 @@ const Description = styled.p`
   color: ${colors.darkBlue};
   text-align: center;
   margin-top: 30px;
+  width: 1000px;
 `
 
 type MainArticleProps = {

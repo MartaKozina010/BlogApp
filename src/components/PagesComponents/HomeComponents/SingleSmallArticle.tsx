@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
-import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
+import { colors } from "../../../utils/appColors"
+import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 
 type SingleSmallArticleProps = {
   image?: string
