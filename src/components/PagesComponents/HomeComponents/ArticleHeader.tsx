@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
-import { ContentWidthLimiter } from "../Header/ContentWidthLimiter"
+import { colors } from "../../../utils/appColors"
+import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -13,7 +13,6 @@ const ContentContainer = styled(ContentWidthLimiter)`
     font-weight: 600;
     color: ${colors.darkBlue};
     text-align: center;
-
     margin-bottom: 16px;
   }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
-import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { ArticleHeader } from "./ArticleHeader"
+import { colors } from "../../../utils/appColors"
+import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
+import { ArticleHeader } from "../HomeComponents/ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -43,7 +43,7 @@ type EntireArticleProps = {
   image: string
 }
 
-export const EntireArticle: React.FC<EntireArticleProps> = (props) => {
+export const BlogArticle: React.FC<EntireArticleProps> = (props) => {
   return (
     <ContentContainer>
       <ArticleHeader

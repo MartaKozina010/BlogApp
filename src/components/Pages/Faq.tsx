@@ -1,4 +1,7 @@
-import { FaqItem, FaqPage } from "../Content/FaqPage"
+import { useState } from "react"
+import { colors } from "../../utils/appColors"
+import { FaqItem } from "../PagesComponents/FaqComponents/FaqItem"
+import { FaqQuestion } from "../PagesComponents/FaqComponents/FaqQuestion"
 
 export const Faq = () => {
   const array = [
@@ -12,7 +15,7 @@ export const Faq = () => {
       title:
         "Sottile, ma allo stesso tempo morbida, leggermente croccante sul fondo,  con il classico “cornicione” bruciacchiato, saporita, profumata ma anche leggera e digeribile",
       description:
-        "Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatura, che permette alla pizza di abbrustolirsi anche in superficie! soluzione che sostituisce il classico forno a legna delle pizzerie! Trucco svelato dal pizzaiolo napoletano Angelo Buono, che ringrazio pubblicamente! Di seguito trovate una guida completa, corredata da esempi illustrati, trucchi e consigli per fare la pizza a casa buona come non l’avete mai mangiata!! che può fare tranquillamente concorrenza a quella delle pizzerie! Scommettiamo?",
+        "Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatura, che permette alla pizza di abbrustolirsi anche in superficie! soluzione che sostituisce il classico forno a legna delle pizzerie! Trucco svelato dal pizzaiolo napoletano Angelo Buono, che ringrazio pubblicamente! Di seguito trovate una guida completa, corredata da esempi illustrati, trucchi e consigli per fare la pizza a casa buona come non l’avete mai mangiata!! che può fare tranquillamente concorrenza a quella delle pizzerie! Scommettiamo? Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatu Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatura, che permette alla pizza di abbrustolirsi anche in superficie! soluzione che sostituisce il classico forno a legna delle pizzerie! Trucco svelato dal pizzaiolo napoletano Angelo Buono, che ringrazio pubblicamente! Di seguito trovate una guida completa, corredata da esempi illustrati, trucchi e consigli per fare la pizza a casa buona come non l’avete mai mangiata!! che può fare tranquillamente concorrenza a quella delle pizzerie! Scommettiamo? Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatu",
     },
     {
       title:
@@ -76,36 +79,22 @@ export const Faq = () => {
     },
   ]
 
-  const mapFaqIssues = array.map((el: any, index: number) => (
-    <FaqItem number={index + 1} title={el.title} description={el.description} />
+  const mapFaqIssues = array.map((el, index) => (
+    <FaqItem
+      number={index + 1}
+      title={el.title}
+      description={el.description}
+      backgroundColor={
+        index % 2 ? colors.sunnyYellow : colors.sunnyYellowOpacity
+      }
+    />
   ))
 
   return (
     <>
       <div>FAQ page</div>
       <div>{mapFaqIssues}</div>
-      <FaqPage />
+      <FaqQuestion />
     </>
   )
-}
-
-{
-  /* <FaqPage number={1} 
-title="How to explain xxxx: How to explain xxxx: How to explain xxxx: How to exp lain xxxx: H ow to exp lain xxx x: How to expla in xxxx: How to explain xxxx:" 
-description="ooooooo, hot dog mn iam mniam mniam oooo ooo, 
-hotdog mniam mniam mni am oooo ooo, ho tdog mni am mniam mniam oooo ooo, 
-hotd dog mniam mni am mniam ooooooo, hotdog mni am mniam mn iam ooo oooo, 
-hotdog mnia m mni am mniam ooooooo, hotd og m niam mn iam mniam
-hot dog mni am mniam mni m ooooooo, hotdog mn iam mniam mniam" 
-text="omom om o mom omo"/>
-
-
-<FaqPage number={1} 
-title="How to explain xxxx: How to explain xxxx: How to explain xxxx: How to exp lain xxxx: H ow to exp lain xxx x: How to expla in xxxx: How to explain xxxx:" 
-description="ooooooo, hot dog mn iam mniam mniam oooo ooo, 
-hotdog mniam mniam mni am oooo ooo, ho tdog mni am mniam mniam oooo ooo, 
-hotd dog mniam mni am mniam ooooooo, hotdog mni am mniam mn iam ooo oooo, 
-hotdog mnia m mni am mniam ooooooo, hotd og m niam mn iam mniam
-hot dog mni am mniam mni m ooooooo, hotdog mn iam mniam mniam" 
-text="omom om o mom omo"/> */
 }

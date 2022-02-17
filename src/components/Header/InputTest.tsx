@@ -3,7 +3,6 @@ import { useState } from "react"
 export const InputTest = () => {
   const [input, setInput] = useState("")
   const [inputTab, setInputTab] = useState<string[]>([])
-  // const tab: Array<string> = ["alfa", "alfa", "alfa2", "beta", "gamma", "delta", "omikron"];
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value)
