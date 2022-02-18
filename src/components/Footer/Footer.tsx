@@ -7,7 +7,6 @@ import { colors } from "../../utils/appColors"
 
 const FooterContainer = styled.div`
   height: 397px;
-  width: 100%;
   background-color: ${colors.darkBlue};
   display: flex;
   align-items: end;
@@ -20,12 +19,11 @@ const ContentContainer = styled(ContentWidthLimiter)`
 
 const ContactContainer = styled.div`
   height: 95px;
-  width: 517px;
+  max-width: 517px;
   background-color: ${colors.sunnyYellow};
   display: flex;
   color: ${colors.darkBlue};
   margin-top: 86px;
-  align-items: flex-end;
 
   h3 {
     font-size: 18px;
@@ -43,7 +41,7 @@ const LogoContainer = styled.div`
     color: ${colors.paragraphWhite};
     font-size: 16px;
     line-height: 28px;
-    margin-top: 22px;
+    padding-top: 22px;
     width: 400px;
   }
 `
@@ -54,16 +52,17 @@ const LeftSide = styled.div`
 `
 
 const EmailContact = styled.div`
-  margin: 18px 0px 16px 36px;
+  padding: 18px 0px 16px 36px;
 `
 
 const PhoneContact = styled.div`
-  margin: 18px 0px 16px 29px;
+  padding: 18px 0px 16px 29px;
 `
 
 const RightSide = styled.div`
   color: ${colors.paragraphWhite};
-  margin-left: 200px;
+  padding-left: 200px;
+  background-color: ${colors.darkBlue};
 
   p {
     font-size: 15px;
@@ -75,7 +74,7 @@ const RightSide = styled.div`
     font-size: 48px;
     font-weight: 600;
     line-height: 64px;
-    margin-bottom: 16px;
+    padding-bottom: 16px;
   }
 `
 
@@ -84,14 +83,14 @@ const SocialMediaContainer = styled.div`
   flex-direction: row;
 
   a {
-    margin: 28px 28px 0px 0px;
+    padding: 28px 28px 0px 0px;
   }
 `
 
 const AllContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  padding-top: 80px;
 `
 
 export const Footer = () => {

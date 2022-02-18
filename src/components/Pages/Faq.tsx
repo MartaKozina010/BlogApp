@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styled from "styled-components"
 import { colors } from "../../utils/appColors"
 import { FaqItem } from "../PagesComponents/FaqComponents/FaqItem"
 import { FaqQuestion } from "../PagesComponents/FaqComponents/FaqQuestion"
@@ -79,6 +80,14 @@ export const Faq = () => {
     },
   ]
 
+  const FaqContainer = styled.div`
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1230px;
+    align-items: center;
+    margin-bottom: 20px;
+  `
+
   const mapFaqIssues = array.map((el, index) => (
     <FaqItem
       number={index + 1}
@@ -91,10 +100,9 @@ export const Faq = () => {
   ))
 
   return (
-    <>
-      <div>FAQ page</div>
+    <FaqContainer>
       <div>{mapFaqIssues}</div>
       <FaqQuestion />
-    </>
+    </FaqContainer>
   )
 }

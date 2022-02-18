@@ -1,21 +1,21 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { colors } from "../../../utils/appColors"
+import { FaqQuestion } from "./FaqQuestion"
 
 const FaqContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
+  max-width: 1230px;
+  align-items: center;
   margin-bottom: 20px;
 `
 
 const Label = styled.div<{ backgroundColor: string }>`
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   align-items: center;
   background-color: ${({ backgroundColor }) => backgroundColor};
   transition: background-color 1s;
-  max-width: 1230px;
   padding: 15px;
 
   &:hover {
@@ -40,8 +40,6 @@ const Title = styled.p`
 `
 
 const Description = styled.div<{ isOpen: boolean }>`
-  margin-left: auto;
-  margin-right: auto;
   background-color: ${colors.paragraphWhite};
   max-width: 1200px;
   text-align: justify;
