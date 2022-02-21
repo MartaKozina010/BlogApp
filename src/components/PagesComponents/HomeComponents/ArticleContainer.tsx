@@ -5,20 +5,24 @@ import { SingleSmallArticle } from "./SingleSmallArticle"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   max-width: 1280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `
 
 const ArticleFlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
 `
 
 const H1 = styled.h1`
   text-align: center;
   font-size: 48px;
   font-weight: 600;
-  margin-top: 10px;
-  margin-bottom: 48px;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
   color: ${colors.almostBlack};
 `
 
