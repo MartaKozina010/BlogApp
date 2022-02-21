@@ -7,16 +7,20 @@ const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   max-width: 830px;
+  width: 100%;
 `
 
 const Text = styled.div`
+  max-width: 830px;
+  width: 100%;
+
   h1 {
     font-size: 30px;
     font-weight: 600;
     color: ${colors.darkBlue};
-    width: 830px;
-    margin: 48px 0px;
+    padding: 1em 0;
   }
 
   p {
@@ -24,15 +28,16 @@ const Text = styled.div`
     font-weight: 400;
     color: ${colors.darkBlue};
     text-align: justify;
-    width: 830px;
-    margin-top: 20px;
-    text-indent: 40px;
+    padding-top: 0.7em;
+    text-indent: 3em;
   }
 
   img {
-    height: 300px;
-    width: 830px;
-    margin-top: 20px;
+    max-height: 300px;
+    max-width: 830px;
+    width: 100%;
+    height: 100%;
+    padding-top: 2%;
   }
 `
 

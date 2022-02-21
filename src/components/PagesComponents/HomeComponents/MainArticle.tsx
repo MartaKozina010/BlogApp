@@ -6,21 +6,21 @@ import { ArticleHeader } from "./ArticleHeader"
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   flex-direction: column;
-  max-width: 830px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  width: 100%;
 `
 
-const MainArticleContainer = styled(ContentWidthLimiter)`
-  a {
-    font-size: 16px;
-    font-weight: 300;
-    color: ${colors.royalBlue};
-    text-align: center;
-    text-decoration: none;
-    margin-top: 16px;
-    margin-bottom: 50px;
-  }
+const ReadMore = styled.a`
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  color: ${colors.royalBlue};
+  padding-top: 1em;
+  padding-bottom: 2.5em;
 
-  a:hover {
+  &:hover {
     text-decoration: underline;
     text-decoration-color: ${colors.hotPink};
   }
@@ -29,10 +29,11 @@ const MainArticleContainer = styled(ContentWidthLimiter)`
 const Description = styled.p`
   font-size: 16px;
   font-weight: 400;
-  color: ${colors.darkBlue};
   text-align: center;
-  margin-top: 30px;
-  width: 1000px;
+  color: ${colors.darkBlue};
+  padding-top: 2em;
+  width: 100%;
+  max-width: 1000px;
 `
 
 type MainArticleProps = {
@@ -45,7 +46,7 @@ type MainArticleProps = {
 
 export const MainArticle: React.FC<MainArticleProps> = (props) => {
   return (
-    <MainArticleContainer>
+    <>
       <ContentContainer>
         <ArticleHeader
           title={props.title}
@@ -53,11 +54,12 @@ export const MainArticle: React.FC<MainArticleProps> = (props) => {
           postedDate={props.postedDate}
           image={props.image}
         />
+
         <Description>{props.description}</Description>
-        <a href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
+        <ReadMore href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
           Read more →
-        </a>
+        </ReadMore>
       </ContentContainer>
-    </MainArticleContainer>
+    </>
   )
 }

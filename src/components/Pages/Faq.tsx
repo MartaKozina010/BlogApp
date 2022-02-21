@@ -7,10 +7,8 @@ import { FaqQuestion } from "../PagesComponents/FaqComponents/FaqQuestion"
 export const Faq = () => {
   const array = [
     {
-      title:
-        "Bastano poche regole, ottimi ingredienti, il mio impasto pizza a base di pochissimo lievito di birra",
-      description:
-        "Ma la vera chicca, che rende la vostra pizza fatta in casa uguale a quella delle pizzerie anche nell’aspetto è la doppia cottura: pochi minuti su piastra e poi nel forno ad altissima temperatura, che permette alla pizza di abbrustolirsi anche in superficie! soluzione che sostituisce il classico forno a legna delle pizzerie! Trucco svelato dal pizzaiolo napoletano Angelo Buono, che ringrazio pubblicamente! Di seguito trovate una guida completa, corredata da esempi illustrati, trucchi e consigli per fare la pizza a casa buona come non l’avete mai mangiata!! che può fare tranquillamente concorrenza a quella delle pizzerie! Scommettiamo?",
+      title: "Bastano poche regole",
+      description: "Ma la vera chicca",
     },
     {
       title:
@@ -83,9 +81,8 @@ export const Faq = () => {
   const FaqContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
     max-width: 1230px;
-    align-items: center;
-    margin-bottom: 20px;
   `
 
   const mapFaqIssues = array.map((el, index) => (

@@ -3,20 +3,16 @@ import styled from "styled-components"
 import { colors } from "../../../utils/appColors"
 import { FaqQuestion } from "./FaqQuestion"
 
-const FaqContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1230px;
-  align-items: center;
-  margin-bottom: 20px;
+const FaqItemContainer = styled.div`
+  margin-bottom: 1em;
 `
 
 const Label = styled.div<{ backgroundColor: string }>`
   display: flex;
   align-items: center;
+  padding: 1em;
   background-color: ${({ backgroundColor }) => backgroundColor};
   transition: background-color 1s;
-  padding: 15px;
 
   &:hover {
     background-color: ${colors.white};
@@ -24,30 +20,28 @@ const Label = styled.div<{ backgroundColor: string }>`
 `
 
 const Number = styled.p`
-  font-size: 36px;
+  font-size: 30px;
   color: ${colors.darkBlue};
-  margin-left: 1.5%;
-  margin-right: 3%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  padding-right: 2%;
 `
 
 const Title = styled.p`
-  font-size: 22px;
+  font-size: 18px;
   color: ${colors.darkBlue};
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: justify;
-  margin-right: 3%;
+  width: 95%;
 `
 
 const Description = styled.div<{ isOpen: boolean }>`
   background-color: ${colors.paragraphWhite};
-  max-width: 1200px;
   text-align: justify;
   overflow: hidden;
   height: auto;
   transition: all 1s;
-  max-height: ${({ isOpen }) => (isOpen ? "400px" : "0px")};
-  padding: ${({ isOpen }) => (isOpen ? "30px 30px" : "0 30px")};
+  max-height: ${({ isOpen }) => (isOpen ? "30em" : "0")};
+  padding: ${({ isOpen }) => (isOpen ? "1.5em 1.5em" : "0 1.5em")};
 `
 
 type FaqItemProps = {
@@ -61,7 +55,9 @@ export const FaqItem = (props: FaqItemProps) => {
   const [show, setShow] = useState(false)
 
   return (
-    <FaqContainer onClick={show ? () => setShow(false) : () => setShow(true)}>
+    <FaqItemContainer
+      onClick={show ? () => setShow(false) : () => setShow(true)}
+    >
       <Label
         onClick={() => setShow(true)}
         backgroundColor={props.backgroundColor}
@@ -70,6 +66,6 @@ export const FaqItem = (props: FaqItemProps) => {
         <Title>{props.title}</Title>
       </Label>
       <Description isOpen={show}>{props.description}</Description>
-    </FaqContainer>
+    </FaqItemContainer>
   )
 }

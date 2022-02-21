@@ -1,40 +1,39 @@
 import styled from "styled-components"
 import { colors } from "../../../utils/appColors"
-import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 
-const ContentContainer = styled(ContentWidthLimiter)`
+const ContentContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   h1 {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
+    color: ${colors.darkBlue};
     font-size: 48px;
     font-weight: 600;
-    color: ${colors.darkBlue};
+    padding-bottom: 0.4em;
     text-align: center;
-    margin-bottom: 16px;
   }
 
   img {
+    width: 100%;
     max-width: 1280px;
-    width: 1280px;
-    height: 500px;
-    margin-top: 30px;
+    height: 100%;
+    max-height: 500px;
+    padding-top: 1em;
   }
 `
 
 const DateAuthorContainer = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
 
   p {
     font-size: 16px;
     font-weight: 500;
     color: ${colors.darkBlue};
-    margin-right: 10px;
-    margin-top: 0px;
+    padding-right: 1em;
   }
 `
 

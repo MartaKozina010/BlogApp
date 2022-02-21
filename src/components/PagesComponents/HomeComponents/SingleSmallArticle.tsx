@@ -12,36 +12,29 @@ type SingleSmallArticleProps = {
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   flex-direction: column;
-  align-items: left;
+  flex-wrap: wrap;
   padding: 0;
 `
 
 const SingleArticleContainer = styled.div`
-  width: 400px;
-  margin-right: 0;
-  margin-left: 0;
-  padding-left: 0px;
-  padding-right: 0px;
-
-  img {
-    margin-bottom: 32px;
-    width: 400px;
-    height: 280px;
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 300px;
+  width: 100%;
 
   h1 {
     font-size: 24px;
     font-weight: 500;
     color: ${colors.darkBlue};
-    margin-top: 16px;
-    margin-bottom: 16px;
+    padding: 0.6em 0;
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
     color: ${colors.darkBlue};
-    margin-bottom: 24px;
+    padding-bottom: 1em;
   }
 
   a {
@@ -49,7 +42,7 @@ const SingleArticleContainer = styled.div`
     font-weight: 600;
     color: ${colors.darkBlue};
     text-decoration: none;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
   }
 
   a:hover {
@@ -57,11 +50,22 @@ const SingleArticleContainer = styled.div`
     text-decoration-color: ${colors.hotPink};
   }
 
-  h3 {
-    //date
+  h5 {
     font-size: 16px;
     font-weight: 500;
     color: ${colors.darkBlue};
+    padding-top: 0.5em;
+  }
+`
+
+const ImageContainer = styled.div`
+  height: 250px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 
@@ -78,8 +82,10 @@ export const SingleSmallArticle: React.FC<SingleSmallArticleProps> = (
   return (
     <SingleArticleContainer>
       <ContentContainer>
-        <img src={image} />
-        <h3>{postedDate.toDateString()}</h3>
+        <ImageContainer>
+          <img src={image} />
+        </ImageContainer>
+        <h5>{postedDate.toDateString()}</h5>
         <h1>{title}</h1>
         <p>{description}</p>
         <a href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">

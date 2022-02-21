@@ -3,32 +3,28 @@ import styled from "styled-components"
 import { colors } from "../../../utils/appColors"
 
 const FaqQuestionContainer = styled.div`
-  margin-right: auto;
-  background-color: ${colors.darkBlue};
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  height: 100px;
+  background-color: ${colors.darkBlue};
+  height: 5em;
+  width: 100%;
   max-width: 700px;
-  padding-left: 15px;
+  padding: 1em;
 `
 
 const TextArea = styled.textarea`
-  width: 500px;
-  height: 60px;
-  border: 2px solid ${colors.sunnyYellow};
-  padding-left: 5px;
+  width: 80%;
+  height: 100%;
+  border: 0.2em solid ${colors.sunnyYellow};
   resize: none;
 
   ::placeholder {
     color: ${colors.darkBlue};
-    font-weight: 500;
   }
 `
 
 const MailContainer = styled.a`
-  margin-left: 10px;
-  background-color: none;
+  padding-left: 1em;
   text-decoration: none;
   color: ${colors.sunnyYellow};
 
