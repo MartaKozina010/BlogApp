@@ -1,27 +1,26 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
-import { FaqQuestion } from "./FaqQuestion"
 
 const FaqItemContainer = styled.div`
   margin-bottom: 1em;
 `
 
-const Label = styled.div<{ backgroundColor: string }>`
+const Label = styled.div<{ invert: boolean }>`
   display: flex;
   align-items: center;
   padding: 1em;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ theme, invert }) =>
+    invert ? theme.faqLabelLighter : theme.faqLabelDarker};
   transition: background-color 1s;
 
   &:hover {
-    background-color: ${colors.white};
+    background-color: ${({ theme }) => theme.faqDescription};
   }
 `
 
 const Number = styled.p`
   font-size: 30px;
-  color: ${colors.darkBlue};
+  color: ${({ theme }) => theme.paragraph};
   width: 5%;
   display: flex;
   justify-content: center;
@@ -30,12 +29,12 @@ const Number = styled.p`
 
 const Title = styled.p`
   font-size: 18px;
-  color: ${colors.darkBlue};
+  color: ${({ theme }) => theme.paragraph};
   width: 95%;
 `
 
 const Description = styled.div<{ isOpen: boolean }>`
-  background-color: ${colors.paragraphWhite};
+  background-color: ${({ theme }) => theme.faqDescription};
   text-align: justify;
   overflow: hidden;
   height: auto;
@@ -48,7 +47,7 @@ type FaqItemProps = {
   number: number
   title: string
   description: string
-  backgroundColor: string
+  lighter: boolean
 }
 
 export const FaqItem = (props: FaqItemProps) => {
@@ -58,10 +57,7 @@ export const FaqItem = (props: FaqItemProps) => {
     <FaqItemContainer
       onClick={show ? () => setShow(false) : () => setShow(true)}
     >
-      <Label
-        onClick={() => setShow(true)}
-        backgroundColor={props.backgroundColor}
-      >
+      <Label onClick={() => setShow(true)} invert={props.lighter}>
         <Number>{props.number}</Number>
         <Title>{props.title}</Title>
       </Label>

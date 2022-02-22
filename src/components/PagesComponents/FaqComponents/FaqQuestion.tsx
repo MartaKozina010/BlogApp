@@ -1,30 +1,34 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
+import { colors } from "../../../utils/theme"
 
 const FaqQuestionContainer = styled.div`
-  display: flex;
-  align-items: center;
+  margin-right: auto;
   background-color: ${colors.darkBlue};
-  height: 5em;
-  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
   max-width: 700px;
-  padding: 1em;
+  padding-left: 15px;
 `
 
 const TextArea = styled.textarea`
-  width: 80%;
-  height: 100%;
-  border: 0.2em solid ${colors.sunnyYellow};
+  width: 500px;
+  height: 60px;
+  border: 2px solid ${colors.sunnyYellow};
+  padding-left: 5px;
   resize: none;
 
   ::placeholder {
     color: ${colors.darkBlue};
+    font-weight: 500;
   }
 `
 
 const MailContainer = styled.a`
-  padding-left: 1em;
+  margin-left: 10px;
+  background-color: none;
   text-decoration: none;
   color: ${colors.sunnyYellow};
 

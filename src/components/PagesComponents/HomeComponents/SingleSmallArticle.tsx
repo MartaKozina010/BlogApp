@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
+import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 
 type SingleSmallArticleProps = {
@@ -26,23 +26,21 @@ const SingleArticleContainer = styled.div`
   h1 {
     font-size: 24px;
     font-weight: 500;
-    color: ${colors.darkBlue};
     padding: 0.6em 0;
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
-    color: ${colors.darkBlue};
     padding-bottom: 1em;
   }
 
   a {
     font-size: 16px;
     font-weight: 600;
-    color: ${colors.darkBlue};
     text-decoration: none;
     margin-bottom: 2em;
+    color: ${({ theme }) => theme.readMore};
   }
 
   a:hover {
@@ -53,8 +51,8 @@ const SingleArticleContainer = styled.div`
   h5 {
     font-size: 16px;
     font-weight: 500;
-    color: ${colors.darkBlue};
     padding-top: 0.5em;
+    color: ${({ theme }) => theme.subtitle};
   }
 `
 

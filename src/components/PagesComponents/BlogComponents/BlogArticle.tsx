@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ArticleHeader } from "../HomeComponents/ArticleHeader"
 
@@ -8,7 +7,7 @@ const ContentContainer = styled(ContentWidthLimiter)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 830px;
+  max-width: 1230px;
   width: 100%;
 `
 
@@ -19,22 +18,18 @@ const Text = styled.div`
   h1 {
     font-size: 30px;
     font-weight: 600;
-    color: ${colors.darkBlue};
     padding: 1em 0;
   }
 
   p {
     font-size: 16px;
     font-weight: 400;
-    color: ${colors.darkBlue};
     text-align: justify;
     padding-top: 0.7em;
     text-indent: 3em;
   }
 
   img {
-    max-height: 300px;
-    max-width: 830px;
     width: 100%;
     height: 100%;
     padding-top: 2%;

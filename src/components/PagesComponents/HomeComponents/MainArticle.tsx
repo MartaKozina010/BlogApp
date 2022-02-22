@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
+import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ArticleHeader } from "./ArticleHeader"
 
@@ -16,7 +16,7 @@ const ReadMore = styled.a`
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
-  color: ${colors.royalBlue};
+  color: ${({ theme }) => theme.readMore};
   padding-top: 1em;
   padding-bottom: 2.5em;
 
@@ -30,7 +30,6 @@ const Description = styled.p`
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  color: ${colors.darkBlue};
   padding-top: 2em;
   width: 100%;
   max-width: 1000px;

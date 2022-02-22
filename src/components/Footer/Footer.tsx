@@ -3,7 +3,7 @@ import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { SocialMediaLink, SocialMediaLogo } from "../../utils/SocialMedia"
 import { FooterLine } from "./FooterLine"
-import { colors } from "../../utils/appColors"
+import { colors } from "../../utils/theme"
 
 const FooterContainer = styled.div`
   height: 397px;

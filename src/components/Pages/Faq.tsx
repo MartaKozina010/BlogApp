@@ -1,6 +1,4 @@
-import { useState } from "react"
 import styled from "styled-components"
-import { colors } from "../../utils/appColors"
 import { FaqItem } from "../PagesComponents/FaqComponents/FaqItem"
 import { FaqQuestion } from "../PagesComponents/FaqComponents/FaqQuestion"
 
@@ -90,9 +88,7 @@ export const Faq = () => {
       number={index + 1}
       title={el.title}
       description={el.description}
-      backgroundColor={
-        index % 2 ? colors.sunnyYellow : colors.sunnyYellowOpacity
-      }
+      lighter={!!(index % 2)}
     />
   ))
 
