@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { pageTabs } from "../pageTabs"
-import { colors } from "../../utils/appColors"
+import { colors } from "../../utils/theme"
 import { Link } from "react-router-dom"
 
 const FooterLineContainer = styled.div`

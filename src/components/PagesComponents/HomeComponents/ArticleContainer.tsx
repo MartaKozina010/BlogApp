@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { SingleSmallArticle } from "./SingleSmallArticle"
 
@@ -23,7 +22,6 @@ const H1 = styled.h1`
   font-weight: 600;
   margin-top: 0.2em;
   margin-bottom: 1em;
-  color: ${colors.almostBlack};
 `
 
 export const ArticleContainer = () => {

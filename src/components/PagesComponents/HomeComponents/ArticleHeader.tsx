@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/appColors"
 
 const ContentContainer = styled.div`
   display: flex;
@@ -10,7 +9,6 @@ const ContentContainer = styled.div`
   h1 {
     width: 100%;
     max-width: 1000px;
-    color: ${colors.darkBlue};
     font-size: 48px;
     font-weight: 600;
     padding-bottom: 0.4em;
@@ -32,8 +30,8 @@ const DateAuthorContainer = styled.div`
   p {
     font-size: 16px;
     font-weight: 500;
-    color: ${colors.darkBlue};
     padding-right: 1em;
+    color: ${({ theme }) => theme.subtitle};
   }
 `
 

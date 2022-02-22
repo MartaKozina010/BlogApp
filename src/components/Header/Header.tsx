@@ -1,7 +1,7 @@
 import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { colors } from "../../utils/appColors"
+import { colors } from "../../utils/theme"
 import { useEffect, useState } from "react"
 import React from "react"
 import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
