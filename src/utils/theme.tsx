@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-import { isWhiteSpaceLike } from "typescript"
 
 export type ThemeType = {
   background: string
