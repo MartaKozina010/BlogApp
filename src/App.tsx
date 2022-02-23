@@ -9,24 +9,14 @@ import { Pricing } from "./components/Pages/Pricing"
 import { Faq } from "./components/Pages/Faq"
 import { Blog } from "./components/Pages/Blog"
 import { ContactUs } from "./components/Pages/ContactUs"
-import { useState } from "react"
 import React from "react"
-import { ThemeProvider } from "styled-components"
-import { lightTheme, darkTheme, GlobalStyles } from "./utils/theme"
+import { DarkModeProvider } from "./utils/DarkModeProvider"
+import { GlobalStyles } from "./utils/theme"
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
-  const [icon, setIcon] = useState("DARK 🌜")
-
-  const setDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
-    isDarkMode ? setIcon("LIGHT 🌞") : setIcon("DARK 🌜")
-  }
-
   return (
-    <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
+    <DarkModeProvider>
       <Header />
-      <div onClick={setDarkMode}>{icon}</div>
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,7 +28,7 @@ function App() {
         <Route path="contactUs" element={<ContactUs />} />
       </Routes>
       <Footer />
-    </ThemeProvider>
+    </DarkModeProvider>
   )
 }
 

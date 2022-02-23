@@ -5,22 +5,31 @@ import { colors } from "../../utils/theme"
 import { useEffect, useState } from "react"
 import React from "react"
 import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
+import { DarkModeSwitch } from "./DarkModeSwitch"
 
 const HeaderContainer = styled.div`
   height: 90px;
-  width: 100%;
   background-color: ${colors.darkBlue};
+  margin-bottom: 80px;
   display: flex;
   align-items: center;
-  margin-bottom: 80px;
 `
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   align-items: center;
+  border: 1px solid yellow;
+  justify-content: space-between;
+`
+
+const LogoContainer = styled.div`
+  border: 1px solid green;
 `
 
 const LinksContainer = styled.nav`
-  margin-left: auto;
+  border: 1px solid pink;
+  align-items: center;
+  display: flex;
+  flex-wrap: no-wrap;
 
   a {
     font-family: unset;
@@ -37,8 +46,8 @@ const LinksContainer = styled.nav`
 `
 
 const SearchComponent = styled.img`
-  position: absolute;
-  margin-left: 20px;
+  /* position: relative;
+top: 8px; */
 `
 
 const SearchInput = styled.input<{ isShowed: boolean }>`
@@ -73,12 +82,12 @@ const StyledContactUsLink = styled(({ isActive, ...props }) => (
   text-decoration-color: ${(props) => props.isActive && colors.hotPink};
   border: 2px solid ${colors.darkGrey};
   color: ${colors.white} !important;
-  border-radius: 50px;
-  padding: 16px 48px;
-  margin-left: 48px;
+  /* border-radius: 50px;  
+  padding: 1% 3%;
+  margin-left: 3%;  */
 `
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [renderSearch, setRenderSearch] = useState(false)
   const [currentIcon, setCurrentIcon] = useState("burger3.png")
   const [input, setInput] = useState("")
@@ -115,6 +124,10 @@ export const Header = () => {
       setTimeout(() => {
         setRenderSearch(false)
         setInput("")
+
+        setTimeout(() => {
+          setCurrentIcon("burger3.png")
+        }, 3000)
       }, 3000)
     }
   }
@@ -137,7 +150,9 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <ContentContainer>
-        <FinsweetLogo />
+        <LogoContainer>
+          <FinsweetLogo />
+        </LogoContainer>
         <LinksContainer>
           <CustomLink to="/">Home</CustomLink>
           <CustomLink to="aboutUs">About us</CustomLink>
@@ -146,20 +161,20 @@ export const Header = () => {
           <CustomLink to="faq">FAQ</CustomLink>
           <CustomLink to="blog">Blog</CustomLink>
           <CustomContactUsLink to="contactUs">Contact us</CustomContactUsLink>
+          <DarkModeSwitch />
           <SearchComponent
-            src="burger3.png"
+            src={currentIcon}
             onClick={renderSearch ? hideSearch : showSearch}
           />
+          <SearchInput
+            isShowed={renderSearch}
+            ref={searchInput}
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="search"
+            onBlur={hideAndCleanInput}
+          />
         </LinksContainer>
-
-        <SearchInput
-          isShowed={renderSearch}
-          ref={searchInput}
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="search"
-          onBlur={hideAndCleanInput}
-        />
       </ContentContainer>
     </HeaderContainer>
   )
