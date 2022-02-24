@@ -5,8 +5,9 @@ export const DarkModeSwitch = () => {
   const DarkModeSwitchContext = useContext(DarkThemeContext)
 
   return (
-    <span onClick={DarkModeSwitchContext.setDarkMode}>
-      {DarkModeSwitchContext.isDarkMode ? "🌞" : "🌜"}
-    </span>
+    <img
+      src={DarkModeSwitchContext.isDarkMode ? "sun.png" : "night-mode.png"}
+      onClick={DarkModeSwitchContext.setDarkMode}
+    />
   )
 }

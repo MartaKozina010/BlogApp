@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { darkTheme, lightTheme } from "./theme"
 
@@ -13,7 +13,16 @@ type ValueType = {
 }
 
 export const DarkModeProvider: React.FC = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const getSessionStorage = (key: string, value: boolean) => {
+    const storage = sessionStorage.getItem(key)
+    return !storage ? value : JSON.parse(storage)
+  }
+
+  const [isDarkMode, setIsDarkMode] = useState(getSessionStorage("mode", false))
+
+  useEffect(() => {
+    sessionStorage.setItem("mode", JSON.stringify(isDarkMode))
+  }, [isDarkMode])
 
   const setDarkMode = () => {
     setIsDarkMode(!isDarkMode)
@@ -27,7 +36,3 @@ export const DarkModeProvider: React.FC = ({ children }) => {
     </DarkThemeContext.Provider>
   )
 }
-
-// useEffect(() => {
-//     localStorage.setItem("darkModeStatus", DarkModeSwitchContext.isDarkMode.toString())
-//   }, [DarkModeSwitchContext.isDarkMode]);
