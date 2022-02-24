@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
+import { useState } from "react"
 
 type SingleSmallArticleProps = {
   image?: string
@@ -66,6 +67,11 @@ const ImageContainer = styled.div`
     object-fit: cover;
   }
 `
+const DateContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 export const SingleSmallArticle: React.FC<SingleSmallArticleProps> = (
   props
@@ -77,13 +83,22 @@ export const SingleSmallArticle: React.FC<SingleSmallArticleProps> = (
     description = "See how pivoting to Webflow changed one person sales strategy and allowed him to attract",
   } = props
 
+  const [favoritesArticle, setFavoritesArticle] = useState<object>([])
+
+  const addToFavorites = () => {
+    // setFavoritesArticle(article as object)
+  }
+
   return (
     <SingleArticleContainer>
       <ContentContainer>
         <ImageContainer>
           <img src={image} />
         </ImageContainer>
-        <h5>{postedDate.toDateString()}</h5>
+        <DateContainer>
+          <h5>{postedDate.toDateString()}</h5>
+          <img src="pluss.png" onClick={addToFavorites} />
+        </DateContainer>
         <h1>{title}</h1>
         <p>{description}</p>
         <a href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">

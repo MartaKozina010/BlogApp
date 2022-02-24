@@ -8,25 +8,22 @@ import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
 import { DarkModeSwitch } from "./DarkModeSwitch"
 
 const HeaderContainer = styled.div`
-  height: 90px;
+  height: 5em;
   background-color: ${colors.darkBlue};
-  margin-bottom: 80px;
+  margin-bottom: 5em;
   display: flex;
   align-items: center;
 `
+
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   align-items: center;
-  border: 1px solid yellow;
   justify-content: space-between;
 `
 
-const LogoContainer = styled.div`
-  border: 1px solid green;
-`
+const LogoContainer = styled.div``
 
 const LinksContainer = styled.nav`
-  border: 1px solid pink;
   align-items: center;
   display: flex;
   flex-wrap: no-wrap;
@@ -36,7 +33,7 @@ const LinksContainer = styled.nav`
     font-size: 16px;
     font-weight: 500;
     color: ${colors.lightGrey};
-    margin-left: 32px;
+    margin-right: 2em;
   }
 
   a:hover {
@@ -46,20 +43,17 @@ const LinksContainer = styled.nav`
 `
 
 const SearchComponent = styled.img`
-  /* position: relative;
-top: 8px; */
+  margin: 0 2em;
 `
 
 const SearchInput = styled.input<{ isShowed: boolean }>`
-  width: 50px;
+  font-size: 12px;
   transition: width 2s;
-  height: 40px;
+  height: 3.5em;
   border: none;
   border-radius: 50px;
-  margin-right: 0;
-  margin-left: 55px;
-  padding-left: ${({ isShowed }) => (isShowed ? "5px" : "0px")};
-  width: ${({ isShowed }) => (isShowed ? "200px" : "0px")};
+  padding-left: ${({ isShowed }) => isShowed && ".5em"};
+  width: ${({ isShowed }) => (isShowed ? "18em" : "0")};
   transition: all 2s;
 
   ::placeholder {
@@ -82,14 +76,20 @@ const StyledContactUsLink = styled(({ isActive, ...props }) => (
   text-decoration-color: ${(props) => props.isActive && colors.hotPink};
   border: 2px solid ${colors.darkGrey};
   color: ${colors.white} !important;
-  /* border-radius: 50px;  
-  padding: 1% 3%;
-  margin-left: 3%;  */
+  border-radius: 50px;
+  padding: 0.5em 2em;
 `
 
 export const Header: React.FC = () => {
-  const [renderSearch, setRenderSearch] = useState(false)
-  const [currentIcon, setCurrentIcon] = useState("burger3.png")
+  type renderSearchType = {
+    display: boolean
+    icon: string
+  }
+
+  const [renderSearch, setRenderSearch] = useState<renderSearchType>({
+    display: false,
+    icon: "loupe.png",
+  })
   const [input, setInput] = useState("")
 
   const searchInput = React.useRef<HTMLInputElement>(null)
@@ -119,32 +119,31 @@ export const Header: React.FC = () => {
   const focusHandler = () => {
     searchInput?.current?.focus()
   }
+
   const hideAndCleanInput = () => {
     if (document.activeElement !== searchInput.current) {
       setTimeout(() => {
-        setRenderSearch(false)
+        setRenderSearch({ display: false, icon: "search.png" })
         setInput("")
 
         setTimeout(() => {
-          setCurrentIcon("burger3.png")
+          setRenderSearch({ display: false, icon: "loupe.png" })
         }, 3000)
       }, 3000)
     }
   }
 
   useEffect(() => {
-    renderSearch && focusHandler()
-  }, [renderSearch])
+    renderSearch.display && focusHandler()
+  }, [renderSearch.display])
 
   const showSearch = () => {
-    setCurrentIcon("food.png")
-    setRenderSearch(true)
+    setRenderSearch({ display: true, icon: "search.png" })
     focusHandler()
   }
 
   const hideSearch = () => {
-    setCurrentIcon("burger3.png")
-    setRenderSearch(false)
+    setRenderSearch({ display: false, icon: "loupe.png" })
   }
 
   return (
@@ -163,11 +162,11 @@ export const Header: React.FC = () => {
           <CustomContactUsLink to="contactUs">Contact us</CustomContactUsLink>
           <DarkModeSwitch />
           <SearchComponent
-            src={currentIcon}
-            onClick={renderSearch ? hideSearch : showSearch}
+            src={renderSearch.icon}
+            onClick={renderSearch ? showSearch : hideSearch}
           />
           <SearchInput
-            isShowed={renderSearch}
+            isShowed={renderSearch.display}
             ref={searchInput}
             value={input}
             onChange={(event) => setInput(event.target.value)}
