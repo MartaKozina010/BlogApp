@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ArticleHeader } from "./ArticleHeader"
+import { Articles } from "../../../utils/articleFetch"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -44,11 +45,13 @@ type MainArticleProps = {
 }
 
 export const MainArticle: React.FC<MainArticleProps> = (props) => {
-  return (
+  const articles = Articles.useFetch("dog")
+
+  return Articles.isSuccess(articles) ? (
     <>
       <ContentContainer>
         <ArticleHeader
-          title={props.title}
+          title={articles.articles[1].title}
           author={props.author}
           postedDate={props.postedDate}
           image={props.image}
@@ -60,5 +63,7 @@ export const MainArticle: React.FC<MainArticleProps> = (props) => {
         </ReadMore>
       </ContentContainer>
     </>
+  ) : (
+    <div>loading...</div>
   )
 }

@@ -11,7 +11,6 @@ export const InputTest = () => {
   const addToArray: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
     setInputTab([input, ...inputTab])
-    console.log("Arrrd: ", inputTab)
   }
 
   return (

@@ -12,6 +12,7 @@ import { ContactUs } from "./components/Pages/ContactUs"
 import React from "react"
 import { DarkModeProvider } from "./utils/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
+import { SearchArticle } from "./components/PagesComponents/HomeComponents/SearchArticle"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="contactUs" element={<ContactUs />} />
       </Routes>
       <Footer />
+      <SearchArticle />
     </DarkModeProvider>
   )
 }

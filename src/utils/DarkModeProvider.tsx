@@ -2,15 +2,15 @@ import React, { createContext, useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
 import { darkTheme, lightTheme } from "./theme"
 
-export const DarkThemeContext = createContext<ValueType>({
-  isDarkMode: false,
-  setDarkMode: () => undefined,
-})
-
 type ValueType = {
   isDarkMode: boolean
   setDarkMode: () => void
 }
+
+export const DarkThemeContext = createContext<ValueType>({
+  isDarkMode: false,
+  setDarkMode: () => undefined,
+})
 
 export const DarkModeProvider: React.FC = ({ children }) => {
   const getSessionStorage = (key: string, value: boolean) => {
