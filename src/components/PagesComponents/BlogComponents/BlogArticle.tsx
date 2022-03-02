@@ -1,6 +1,9 @@
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { ArticleHeader } from "../HomeComponents/ArticleHeader"
+import {
+  ArticleHeader,
+  ArticleHeaderProps,
+} from "../HomeComponents/ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;

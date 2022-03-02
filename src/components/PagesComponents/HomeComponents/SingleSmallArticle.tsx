@@ -1,28 +1,15 @@
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { useState } from "react"
-
-type SingleSmallArticleProps = {
-  image?: string
-  postedDate?: Date
-  title?: string
-  description?: string
-}
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   padding: 0;
-`
-
-const SingleArticleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   max-width: 400px;
   min-width: 300px;
   width: 100%;
+  height: 750px;
 
   h1 {
     font-size: 24px;
@@ -65,6 +52,7 @@ const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 1px solid black;
   }
 `
 const DateContainer = styled.div`
@@ -73,38 +61,42 @@ const DateContainer = styled.div`
   align-items: center;
 `
 
-export const SingleSmallArticle: React.FC<SingleSmallArticleProps> = (
-  props
-) => {
-  const {
-    image = "https://us.123rf.com/450wm/deagreez/deagreez1905/deagreez190501463/122178757-pleine-longueur-c%C3%B4t%C3%A9-profil-taille-du-corps-photo-funky-dr%C3%B4le-elle-lui-il-lui-son-gars-dame-sauter-h.jpg?ver=6",
-    postedDate = new Date(2015, 11, 11),
-    title = "How one Webflow user grew his single person consultancy from $0-100K in 14 months",
-    description = "See how pivoting to Webflow changed one person sales strategy and allowed him to attract",
-  } = props
+const Description = styled.p`
+  height: 200px;
+  overflow: hidden;
+`
 
-  const [favoritesArticle, setFavoritesArticle] = useState<object>([])
+const ReadMore = styled.a`
+  display: relative;
+  margin-top: auto;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: ${({ theme }) => theme.readMore};
+`
 
-  const addToFavorites = () => {
-    // setFavoritesArticle(article as object)
-  }
+type SingleSmallArticleProps = {
+  image: string
+  postedDate: Date
+  title: string
+  description: string
+}
 
+export const SingleSmallArticle = (props: SingleSmallArticleProps) => {
   return (
-    <SingleArticleContainer>
-      <ContentContainer>
-        <ImageContainer>
-          <img src={image} />
-        </ImageContainer>
-        <DateContainer>
-          <h5>{postedDate.toDateString()}</h5>
-          <img src="pluss.png" onClick={addToFavorites} />
-        </DateContainer>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <a href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
-          Read more →
-        </a>
-      </ContentContainer>
-    </SingleArticleContainer>
+    <ContentContainer>
+      <ImageContainer>
+        <img src={props.image} />
+      </ImageContainer>
+      <DateContainer>
+        <h5>{props.postedDate.toDateString()}</h5>
+        <img src="pluss.png" />
+      </DateContainer>
+      <h1>{props.title}</h1>
+      <Description>{props.description}</Description>
+      <ReadMore href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
+        Read more →
+      </ReadMore>
+    </ContentContainer>
   )
 }

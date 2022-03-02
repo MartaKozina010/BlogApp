@@ -12,25 +12,26 @@ import { ContactUs } from "./components/Pages/ContactUs"
 import React from "react"
 import { DarkModeProvider } from "./utils/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
-import { SearchArticle } from "./components/PagesComponents/HomeComponents/SearchArticle"
+import { Articles } from "./utils/articleFetch"
 
 function App() {
   return (
-    <DarkModeProvider>
-      <Header />
-      <GlobalStyles />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="aboutUs" element={<AboutUs />} />
-        <Route path="features" element={<Features />} />
-        <Route path="pricing" element={<Pricing />} />
-        <Route path="faq" element={<Faq />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="contactUs" element={<ContactUs />} />
-      </Routes>
-      <Footer />
-      <SearchArticle />
-    </DarkModeProvider>
+    <Articles.Provider search="UX">
+      <DarkModeProvider>
+        <Header />
+        <GlobalStyles />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="features" element={<Features />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="faq" element={<Faq />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="contactUs" element={<ContactUs />} />
+        </Routes>
+        <Footer />
+      </DarkModeProvider>
+    </Articles.Provider>
   )
 }
 

@@ -1,3 +1,4 @@
+import React from "react"
 import { useEffect, useState } from "react"
 
 export type ArticleType = {
@@ -5,7 +6,7 @@ export type ArticleType = {
   author: string
   content: string
   description: string
-  publishedAt: Date
+  publishedAt: string
   urlToImage: string
 }
 
@@ -19,32 +20,42 @@ type ArticleFetchFailType = {
   error: any
 }
 
-type ArticleFetchType = ArticleFetchSuccessType | ArticleFetchFailType
+type ArticleFetchType =
+  | ArticleFetchSuccessType
+  | ArticleFetchFailType
+  | undefined
 
 export namespace Articles {
+  export const Context = React.createContext<ArticleFetchType>(undefined)
+
   export const isSuccess = (
     arg?: ArticleFetchType
   ): arg is ArticleFetchSuccessType => {
     return arg?.status === "success"
   }
 
-  export const useFetch = (search: string) => {
+  type UseFetchType = {
+    search: string
+  }
+
+  export const Provider: React.FC<UseFetchType> = ({ search, children }) => {
     const [articleFetch, setArticleFetch] = useState<ArticleFetchType>()
 
     useEffect(() => {
       fetch(
-        `https://newsapi.org/v2/everything?q=${search}&from=2022-01-25&sortBy=publishedAt&apiKey=06eeb4e6a31c43bdbc83dae595fbcd57`
+        `https://newsapi.org/v2/everything?q=${search}&from=2022-02-25&sortBy=publishedAt&apiKey=06eeb4e6a31c43bdbc83dae595fbcd57`
       )
-        .then((response) => response.json())
+        .then((response) =>
+          response.ok
+            ? response.json()
+            : Promise.reject(`Http error: ${response.status}`)
+        )
         .then((data) =>
           setArticleFetch({ status: "success", articles: data.articles })
         )
         .catch((error) => setArticleFetch({ status: "failed", error: error }))
     }, [search])
-    return articleFetch
+
+    return <Context.Provider value={articleFetch}>{children}</Context.Provider>
   }
 }
-
-// const articles = isSuccess(articleFetch) && articleFetch.articles.map((article: ArticleType) =>
-//     <>
-//     </>

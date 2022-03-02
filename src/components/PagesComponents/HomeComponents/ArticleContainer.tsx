@@ -1,5 +1,8 @@
+import { useContext, useState } from "react"
 import styled from "styled-components"
+import { Articles } from "../../../utils/articleFetch"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
+import { colors } from "../../../utils/theme"
 import { SingleSmallArticle } from "./SingleSmallArticle"
 
 const ContentContainer = styled(ContentWidthLimiter)`
@@ -24,18 +27,39 @@ const H1 = styled.h1`
   margin-bottom: 1em;
 `
 
+const Button = styled.button`
+  border: none;
+
+  &:hover {
+    background-color: ${colors.sunnyYellow};
+  }
+`
+
 export const ArticleContainer = () => {
+  const sliceStart = 1
+  const [sliceEnd, setSliceEnd] = useState(7)
+
+  const articles = useContext(Articles.Context)
+  const articlesList =
+    Articles.isSuccess(articles) &&
+    articles.articles
+      .slice(sliceStart, sliceEnd)
+      .map((el) => (
+        <SingleSmallArticle
+          image={el.urlToImage}
+          postedDate={new Date(el.publishedAt)}
+          title={el.title}
+          description={el.description}
+        />
+      ))
+
   return (
-    <ContentContainer>
-      <H1>Our blog</H1>
-      <ArticleFlexContainer>
-        <SingleSmallArticle image="https://assets.weforum.org/article/image/XaHpf_z51huQS_JPHs-jkPhBp0dLlxFJwt-sPLpGJB0.jpg" />
-        <SingleSmallArticle image="https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg" />
-        <SingleSmallArticle image="https://assets.aws.worldathletics.org/large/61167b1583751946399a5ccb.jpg" />
-        <SingleSmallArticle image="https://www.rover.com/blog/wp-content/uploads/iStock-1301022721.jpg" />
-        <SingleSmallArticle image="https://eartheclipse.com/wp-content/uploads/2017/05/clouds-cloudy-conifers-dawn-valley.jpg" />
-        <SingleSmallArticle />
-      </ArticleFlexContainer>
-    </ContentContainer>
+    <>
+      <ContentContainer>
+        <H1>Our blog</H1>
+        <ArticleFlexContainer>{articlesList}</ArticleFlexContainer>
+        <Button onClick={() => setSliceEnd(sliceEnd + 6)}>load more</Button>
+      </ContentContainer>
+    </>
   )
 }
