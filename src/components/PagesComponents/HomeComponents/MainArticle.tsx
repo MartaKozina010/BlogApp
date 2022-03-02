@@ -1,8 +1,7 @@
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { ArticleHeader } from "./ArticleHeader"
-import { Articles } from "../../../utils/articleFetch"
+import { ArticleHeader, ArticleHeaderProps } from "./ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -45,25 +44,18 @@ type MainArticleProps = {
 }
 
 export const MainArticle: React.FC<MainArticleProps> = (props) => {
-  const articles = Articles.useFetch("dog")
-
-  return Articles.isSuccess(articles) ? (
-    <>
-      <ContentContainer>
-        <ArticleHeader
-          title={articles.articles[1].title}
-          author={props.author}
-          postedDate={props.postedDate}
-          image={props.image}
-        />
-
-        <Description>{props.description}</Description>
-        <ReadMore href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
-          Read more →
-        </ReadMore>
-      </ContentContainer>
-    </>
-  ) : (
-    <div>loading...</div>
+  return (
+    <ContentContainer>
+      <ArticleHeader
+        title={props.title}
+        author={props.author}
+        postedDate={props.postedDate}
+        image={props.image}
+      />
+      <Description>{props.description}</Description>
+      <ReadMore href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
+        Read more →
+      </ReadMore>
+    </ContentContainer>
   )
 }

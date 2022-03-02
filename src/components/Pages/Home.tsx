@@ -1,19 +1,22 @@
+import { useContext } from "react"
+import { Articles } from "../../utils/articleFetch"
 import { ArticleContainer } from "../PagesComponents/HomeComponents/ArticleContainer"
 import { MainArticle } from "../PagesComponents/HomeComponents/MainArticle"
 
 export const Home = () => {
-  return (
+  const articles = useContext(Articles.Context)
+  return Articles.isSuccess(articles) ? (
     <>
       <MainArticle
-        title="A UX Case Study on Creating a Studious Environment for Students"
-        author="Andrew Jonson"
-        postedDate={new Date(2021, 12, 15)}
-        image="23277.jpg"
-        description="Apparently we had reached a great height in the atmosphere, 
-            for the sky was a dead black, and the stars had ceased to twinkle. 
-            By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside."
+        title={articles.articles[0].title}
+        author={articles.articles[0].author}
+        postedDate={new Date(articles.articles[0].publishedAt)}
+        image={articles.articles[0].urlToImage}
+        description={articles.articles[0].description}
       />
-      <ArticleContainer />
+      <ArticleContainer />{" "}
     </>
+  ) : (
+    <div>Loading...</div>
   )
 }

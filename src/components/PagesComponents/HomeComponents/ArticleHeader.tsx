@@ -14,14 +14,31 @@ const ContentContainer = styled.div`
     padding-bottom: 0.4em;
     text-align: center;
   }
-
+  /* 
   img {
     width: 100%;
     max-width: 1280px;
     height: 100%;
     max-height: 500px;
     padding-top: 1em;
+  } */
+`
+
+const ImageContainer = styled.div`
+  height: 400px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-top: 1em;
   }
+`
+const DateContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const DateAuthorContainer = styled.div`
@@ -35,7 +52,7 @@ const DateAuthorContainer = styled.div`
   }
 `
 
-type ArticleHeaderProps = {
+export type ArticleHeaderProps = {
   title: string
   author: string
   postedDate: Date
@@ -50,7 +67,9 @@ export const ArticleHeader = (props: ArticleHeaderProps) => {
         <p>{props.author}</p>
         <p>Posted on {props.postedDate.toDateString()}</p>
       </DateAuthorContainer>
-      <img src={props.image} />
+      <ImageContainer>
+        <img src={props.image} />
+      </ImageContainer>
     </ContentContainer>
   )
 }
