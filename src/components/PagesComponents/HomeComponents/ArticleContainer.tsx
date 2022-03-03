@@ -49,10 +49,10 @@ export const ArticleContainer = () => {
           title={el.title}
           description={el.description}
         />
-      )) : 
+      ))
+  ) : (
     <div>Loading...</div>
-
-
+  )
 
   return (
     <>

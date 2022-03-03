@@ -14,10 +14,9 @@ import { DarkModeProvider } from "./utils/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
 import { Articles } from "./utils/articleFetch"
 
-
 function App() {
   return (
-    <Articles.Provider search="UX">
+    <Articles.Provider search="business">
       <DarkModeProvider>
         <Header />
         <GlobalStyles />
