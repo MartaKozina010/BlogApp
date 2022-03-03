@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router-dom"
 import styled from "styled-components"
 import { Articles } from "../../../utils/articleFetch"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { ArticleHeader } from "../HomeComponents/ArticleHeader"
+import {
+  ArticleHeader,
+  ArticleHeaderProps,
+} from "../HomeComponents/ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;

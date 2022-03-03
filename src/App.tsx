@@ -13,11 +13,11 @@ import React from "react"
 import { DarkModeProvider } from "./utils/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
 import { Articles } from "./utils/articleFetch"
-import { BlogArticle } from "./components/PagesComponents/BlogComponents/BlogArticle"
+
 
 function App() {
   return (
-    <Articles.Provider search="business">
+    <Articles.Provider search="UX">
       <DarkModeProvider>
         <Header />
         <GlobalStyles />
