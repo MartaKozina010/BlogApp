@@ -3,7 +3,6 @@ import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ReadMore } from "./ReadMore"
 
-
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
   flex-direction: column;
@@ -52,20 +51,6 @@ const DateContainer = styled.div`
 const Description = styled.p`
   height: 200px;
   overflow: hidden;
-`
-
-const ReadMore = styled.a`
-  display: relative;
-  margin-top: auto;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  color: ${({ theme }) => theme.readMore};
-        
-  &:hover {
-  text-decoration: underline;
-  text-decoration-color: ${colors.hotPink};
-  }
 `
 
 type SingleSmallArticleProps = {

@@ -14,7 +14,7 @@ export const Home = () => {
         image={articles.articles[0].urlToImage}
         description={articles.articles[0].description}
       />
-      <ArticleContainer />{" "}
+      <ArticleContainer />
     </>
   ) : (
     <div>Loading...</div>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 
-const ReadMoreContainer = styled(Link)`
+const ReadMoreContainer = styled.div`
   display: relative;
   margin-top: auto;
   font-size: 16px;
@@ -18,5 +18,5 @@ const ReadMoreContainer = styled(Link)`
 `
 
 export const ReadMore = () => {
-  return <ReadMoreContainer to="blog/1">Read more →</ReadMoreContainer>
+  return <ReadMoreContainer>Read more →</ReadMoreContainer>
 }
