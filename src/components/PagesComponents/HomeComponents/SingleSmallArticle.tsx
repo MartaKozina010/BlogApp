@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
+import { ReadMore } from "./ReadMore"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -20,20 +21,6 @@ const ContentContainer = styled(ContentWidthLimiter)`
   p {
     font-size: 16px;
     font-weight: 400;
-    padding-bottom: 1em;
-  }
-
-  a {
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-bottom: 2em;
-    color: ${({ theme }) => theme.readMore};
-  }
-
-  a:hover {
-    text-decoration: underline;
-    text-decoration-color: ${colors.hotPink};
   }
 
   h5 {
@@ -66,14 +53,20 @@ const Description = styled.p`
   overflow: hidden;
 `
 
-const ReadMore = styled.a`
-  display: relative;
-  margin-top: auto;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  color: ${({ theme }) => theme.readMore};
-`
+// const ReadMore = styled(ReadMore)`
+//   display: relative;
+//   margin-top: auto;
+//   font-size: 16px;
+//   font-weight: 600;
+//   text-decoration: none;
+//   margin-bottom: 2em;
+//   color: ${({ theme }) => theme.readMore};
+
+//   &:hover {
+//     text-decoration: underline;
+//     text-decoration-color: ${colors.hotPink};
+//   }
+// `
 
 type SingleSmallArticleProps = {
   image: string
@@ -94,9 +87,7 @@ export const SingleSmallArticle = (props: SingleSmallArticleProps) => {
       </DateContainer>
       <h1>{props.title}</h1>
       <Description>{props.description}</Description>
-      <ReadMore href="https://d-art.ppstatic.pl/kadry/k/r/1/3b/59/5fb8d717a60f9_o_large.jpg">
-        Read more →
-      </ReadMore>
+      <ReadMore />
     </ContentContainer>
   )
 }
