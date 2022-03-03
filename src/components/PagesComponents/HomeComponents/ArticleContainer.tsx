@@ -36,14 +36,12 @@ const Button = styled.button`
 `
 
 export const ArticleContainer = () => {
-  const sliceStart = 1
   const [sliceEnd, setSliceEnd] = useState(7)
 
   const articles = useContext(Articles.Context)
-  const articlesList =
-    Articles.isSuccess(articles) &&
+  const articlesList = Articles.isSuccess(articles) ? (
     articles.articles
-      .slice(sliceStart, sliceEnd)
+      .slice(1, sliceEnd)
       .map((el) => (
         <SingleSmallArticle
           image={el.urlToImage}
@@ -51,7 +49,10 @@ export const ArticleContainer = () => {
           title={el.title}
           description={el.description}
         />
-      ))
+      )) : 
+    <div>Loading...</div>
+
+
 
   return (
     <>

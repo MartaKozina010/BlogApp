@@ -43,7 +43,7 @@ export namespace Articles {
 
     useEffect(() => {
       fetch(
-        `https://newsapi.org/v2/everything?q=${search}&from=2022-02-25&sortBy=publishedAt&apiKey=06eeb4e6a31c43bdbc83dae595fbcd57`
+        `https://newsapi.org/v2/top-headlines?country=us&category=${search}&apiKey=06eeb4e6a31c43bdbc83dae595fbcd57`
       )
         .then((response) =>
           response.ok

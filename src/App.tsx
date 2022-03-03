@@ -14,6 +14,7 @@ import { DarkModeProvider } from "./utils/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
 import { Articles } from "./utils/articleFetch"
 
+
 function App() {
   return (
     <Articles.Provider search="UX">
@@ -26,7 +27,7 @@ function App() {
           <Route path="features" element={<Features />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="faq" element={<Faq />} />
-          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<Blog />} />
           <Route path="contactUs" element={<ContactUs />} />
         </Routes>
         <Footer />
