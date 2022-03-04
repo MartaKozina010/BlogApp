@@ -14,14 +14,6 @@ const ContentContainer = styled.div`
     padding-bottom: 0.4em;
     text-align: center;
   }
-  /* 
-  img {
-    width: 100%;
-    max-width: 1280px;
-    height: 100%;
-    max-height: 500px;
-    padding-top: 1em;
-  } */
 `
 
 const ImageContainer = styled.div`

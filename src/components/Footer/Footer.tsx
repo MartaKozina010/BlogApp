@@ -5,6 +5,8 @@ import { SocialMediaLink, SocialMediaLogo } from "../../utils/SocialMedia"
 import { FooterLine } from "./FooterLine"
 import { colors } from "../../utils/theme"
 
+//footer caly do poprawy -na nowo
+
 const FooterContainer = styled.div`
   height: 397px;
   background-color: ${colors.darkBlue};
