@@ -8,6 +8,7 @@ export type ThemeType = {
   faqLabelLighter: string
   faqLabelDarker: string
   faqDescription: string
+  searchListHover: string
 }
 
 export const GlobalStyles = createGlobalStyle<{ theme: ThemeType }>`
@@ -41,6 +42,7 @@ export const lightTheme: ThemeType = {
   faqLabelLighter: colors.sunnyYellow,
   faqLabelDarker: colors.sunnyYellowOpacity,
   faqDescription: colors.paragraphWhite,
+  searchListHover: colors.sunnyYellow,
 }
 
 export const darkTheme: ThemeType = {
@@ -51,4 +53,5 @@ export const darkTheme: ThemeType = {
   faqLabelLighter: colors.darkGrey,
   faqLabelDarker: colors.almostBlack,
   faqDescription: colors.darkGrey,
+  searchListHover: colors.almostBlack,
 }

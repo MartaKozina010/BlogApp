@@ -42,12 +42,13 @@ export const ArticleContainer = () => {
   const articlesList = Articles.isSuccess(articles) ? (
     articles.articles
       .slice(1, sliceEnd)
-      .map((el) => (
+      .map((el, index) => (
         <SingleSmallArticle
           image={el.urlToImage}
           postedDate={new Date(el.publishedAt)}
           title={el.title}
           description={el.description}
+          articleIndex={index + 1}
         />
       ))
   ) : (

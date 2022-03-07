@@ -3,7 +3,7 @@ import { Articles } from "../../utils/articleFetch"
 import { ArticleContainer } from "../PagesComponents/HomeComponents/ArticleContainer"
 import { MainArticle } from "../PagesComponents/HomeComponents/MainArticle"
 
-export const Home = () => {
+export const BlogHome = () => {
   const articles = useContext(Articles.Context)
   return Articles.isSuccess(articles) ? (
     <>
@@ -13,6 +13,7 @@ export const Home = () => {
         postedDate={new Date(articles.articles[0].publishedAt)}
         image={articles.articles[0].urlToImage}
         description={articles.articles[0].description}
+        articleIndex={0}
       />
       <ArticleContainer />
     </>

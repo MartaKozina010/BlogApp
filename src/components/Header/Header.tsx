@@ -5,7 +5,7 @@ import { colors } from "../../utils/theme"
 import React from "react"
 import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
 import { DarkModeSwitch } from "./DarkModeSwitch"
-import { SearchModule } from "../PagesComponents/HomeComponents/SearchList"
+import { SearchModule } from "./SearchList"
 
 const HeaderContainer = styled.div`
   height: 5em;
@@ -23,11 +23,13 @@ const ContentContainer = styled(ContentWidthLimiter)`
 
 const LogoContainer = styled.div``
 
-const LinksContainer = styled.nav`
+const LinksContainer = styled.div`
   align-items: center;
   display: flex;
   flex-wrap: no-wrap;
+`
 
+const MenuLinks = styled.nav`
   a {
     font-family: unset;
     font-size: 16px;
@@ -74,7 +76,7 @@ export const Header: React.FC = () => {
 
   const CustomContactUsLink = ({ children, ...props }: LinkProps) => {
     const resolved = useResolvedPath(props.to)
-    const match = useMatch({ path: resolved.pathname, end: true })
+    const match = useMatch({ path: resolved.pathname, end: false })
 
     return (
       <StyledContactUsLink isActive={!!match} {...props}>
@@ -90,13 +92,14 @@ export const Header: React.FC = () => {
           <FinsweetLogo />
         </LogoContainer>
         <LinksContainer>
-          <CustomLink to="/">Home</CustomLink>
-          <CustomLink to="aboutUs">About us</CustomLink>
-          <CustomLink to="features">Features</CustomLink>
-          <CustomLink to="pricing">Pricing</CustomLink>
-          <CustomLink to="faq">FAQ</CustomLink>
-          <CustomLink to="blog">Blog</CustomLink>
-          <CustomContactUsLink to="contactUs">Contact us</CustomContactUsLink>
+          <MenuLinks>
+            <CustomLink to="/">Blog</CustomLink>
+            <CustomLink to="aboutUs">About us</CustomLink>
+            <CustomLink to="features">Features</CustomLink>
+            <CustomLink to="pricing">Pricing</CustomLink>
+            <CustomLink to="faq">FAQ</CustomLink>
+            <CustomContactUsLink to="contactUs">Contact us</CustomContactUsLink>
+          </MenuLinks>
           <DarkModeSwitch />
           <SearchModule />
         </LinksContainer>

@@ -29,6 +29,7 @@ type MainArticleProps = {
   postedDate: Date
   image: string
   description: string
+  articleIndex: number
 }
 
 export const MainArticle: React.FC<MainArticleProps> = (props) => {
@@ -41,7 +42,7 @@ export const MainArticle: React.FC<MainArticleProps> = (props) => {
         image={props.image}
       />
       <Description>{props.description}</Description>
-      <ReadMore />
+      <ReadMore articleIndex={props.articleIndex} />
     </ContentContainer>
   )
 }
