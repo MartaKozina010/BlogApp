@@ -5,18 +5,29 @@ import { colors } from "../../../utils/theme"
 const ReadMoreContainer = styled.div`
   display: relative;
   margin-top: auto;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
   margin-bottom: 2em;
-  color: ${({ theme }) => theme.readMore};
 
-  &:hover {
+  a {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: ${({ theme }) => theme.readMore};
+  }
+
+  a:hover {
     text-decoration: underline;
     text-decoration-color: ${colors.hotPink};
   }
 `
 
-export const ReadMore = () => {
-  return <ReadMoreContainer>Read more →</ReadMoreContainer>
+type ReadMoreType = {
+  articleIndex: number
+}
+
+export const ReadMore = (props: ReadMoreType) => {
+  return (
+    <ReadMoreContainer>
+      <Link to={`/${props.articleIndex}`}>Read more →</Link>
+    </ReadMoreContainer>
+  )
 }

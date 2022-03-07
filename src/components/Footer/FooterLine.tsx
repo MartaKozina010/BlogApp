@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { pageTabs } from "../pageTabs"
 import { colors } from "../../utils/theme"
 import { Link } from "react-router-dom"
 
@@ -42,12 +41,11 @@ export const FooterLine = () => {
       <ContentContainer>
         <p>Copyright 2021, Finsweet.com</p>
         <Webmarks>
-          <Link to="/">Home</Link>
+          <Link to="/">Blog</Link>
           <Link to="aboutUs">About us</Link>
           <Link to="features">Features</Link>
           <Link to="pricing">Pricing</Link>
           <Link to="faq">FAQ</Link>
-          <Link to="blog">Blog</Link>
         </Webmarks>
       </ContentContainer>
     </FooterLineContainer>

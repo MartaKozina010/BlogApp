@@ -58,6 +58,7 @@ type SingleSmallArticleProps = {
   postedDate: Date
   title: string
   description: string
+  articleIndex: number
 }
 
 export const SingleSmallArticle = (props: SingleSmallArticleProps) => {
@@ -72,7 +73,7 @@ export const SingleSmallArticle = (props: SingleSmallArticleProps) => {
       </DateContainer>
       <h1>{props.title}</h1>
       <Description>{props.description}</Description>
-      <ReadMore />
+      <ReadMore articleIndex={props.articleIndex} />
     </ContentContainer>
   )
 }

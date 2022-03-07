@@ -2,7 +2,7 @@ import "./App.css"
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
 import { Route, Routes } from "react-router-dom"
-import { Home } from "./components/Pages/Home"
+import { BlogHome } from "./components/Pages/BlogHome"
 import { AboutUs } from "./components/Pages/AboutUs"
 import { Features } from "./components/Pages/Features"
 import { Pricing } from "./components/Pages/Pricing"
@@ -21,12 +21,12 @@ function App() {
         <Header />
         <GlobalStyles />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<BlogHome />} />
+          <Route path="/:id" element={<Blog />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="features" element={<Features />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="faq" element={<Faq />} />
-          <Route path="blog/:id" element={<Blog />} />
           <Route path="contactUs" element={<ContactUs />} />
         </Routes>
         <Footer />
