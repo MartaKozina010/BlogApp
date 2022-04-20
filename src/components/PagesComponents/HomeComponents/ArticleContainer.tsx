@@ -44,6 +44,7 @@ export const ArticleContainer = () => {
       .slice(1, sliceEnd)
       .map((el, index) => (
         <SingleSmallArticle
+          key={el.title}
           image={el.urlToImage}
           postedDate={new Date(el.publishedAt)}
           title={el.title}

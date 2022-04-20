@@ -1,5 +1,3 @@
-import { isWhiteSpaceLike } from "typescript"
-
 export type Color = keyof typeof buttonColors
 
 export const buttonColors = {
