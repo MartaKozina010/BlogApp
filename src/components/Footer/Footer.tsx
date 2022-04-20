@@ -66,6 +66,10 @@ const RightSide = styled.div`
   padding-left: 200px;
   background-color: ${colors.darkBlue};
 
+  @media (max-width: 700px) {
+    display: none;
+  }
+
   p {
     font-size: 15px;
     line-height: 28px;

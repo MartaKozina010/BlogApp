@@ -93,10 +93,6 @@ export const SearchModule = () => {
     }, 500)
   }
 
-  setTimeout(() => {
-    console.log("This will run after 1 second!")
-  }, 1000)
-
   const showSearch = () => {
     setRenderSearch({ display: true, icon: "search.png" })
     focusHandler()

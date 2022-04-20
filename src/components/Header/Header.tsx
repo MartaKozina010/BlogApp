@@ -8,7 +8,7 @@ import { DarkModeSwitch } from "./DarkModeSwitch"
 import { SearchModule } from "./SearchList"
 
 const HeaderContainer = styled.div`
-  height: 5em;
+  padding: 1em;
   background-color: ${colors.darkBlue};
   margin-bottom: 5em;
   display: flex;
@@ -21,17 +21,17 @@ const ContentContainer = styled(ContentWidthLimiter)`
   justify-content: space-between;
 `
 
-const LogoContainer = styled.div``
-
-const LinksContainer = styled.div`
+const RightContainer = styled.div`
   align-items: center;
   display: flex;
-  flex-wrap: no-wrap;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `
 
 const MenuLinks = styled.nav`
   a {
-    font-family: unset;
     font-size: 16px;
     font-weight: 500;
     color: ${colors.lightGrey};
@@ -88,10 +88,8 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <ContentContainer>
-        <LogoContainer>
-          <FinsweetLogo />
-        </LogoContainer>
-        <LinksContainer>
+        <FinsweetLogo />
+        <RightContainer>
           <MenuLinks>
             <CustomLink to="/">Blog</CustomLink>
             <CustomLink to="aboutUs">About us</CustomLink>
@@ -102,7 +100,7 @@ export const Header: React.FC = () => {
           </MenuLinks>
           <DarkModeSwitch />
           <SearchModule />
-        </LinksContainer>
+        </RightContainer>
       </ContentContainer>
     </HeaderContainer>
   )
