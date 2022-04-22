@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { globalFont } from "../../../utils/theme"
+import { globalFont } from "../../../utils/fonts"
 
 const FaqItemContainer = styled.div`
   margin-bottom: 1em;

@@ -1,15 +1,10 @@
-import styled, { createGlobalStyle } from "styled-components"
-import { FinsweetLogo } from "../../utils/FinsweetLogo"
+import styled from "styled-components"
+import { FinsweetLogo } from "../../utils/finsweetLogo"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { SocialMedia } from "../../utils/SocialMedia"
+import { SocialMedia } from "../../utils/socialMedia"
 import { FooterLine } from "./FooterLine"
-import { colors, globalFont } from "../../utils/theme"
-
-// const GlobalFonts = createGlobalStyle`
-// :root {
-//   --headerr: clamp(2rem, 4vw, 3rem);
-// }
-// `
+import { colors } from "../../utils/theme"
+import { globalFont } from "../../utils/fonts"
 
 const FooterContainer = styled.div`
   background-color: ${colors.darkBlue};

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
-import { darkTheme, lightTheme } from "./theme"
+import { darkTheme, lightTheme } from "../../utils/theme"
 
 type ValueType = {
   isDarkMode: boolean

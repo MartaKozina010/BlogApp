@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Articles } from "../../utils/articleFetch"
+import { Articles } from "../ArticleFetch"
 import { ArticleContainer } from "../PagesComponents/HomeComponents/ArticleContainer"
 import { MainArticle } from "../PagesComponents/HomeComponents/MainArticle"
 

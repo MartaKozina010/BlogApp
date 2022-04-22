@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { colors, globalFont } from "../../utils/theme"
+import { colors } from "../../utils/theme"
+import { globalFont } from "../../utils/fonts"
 
 const FooterLineContainer = styled.div`
   display: flex;

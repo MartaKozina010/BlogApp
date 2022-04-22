@@ -10,9 +10,9 @@ import { Faq } from "./components/Pages/Faq"
 import { Blog } from "./components/Pages/Blog"
 import { ContactUs } from "./components/Pages/ContactUs"
 import React from "react"
-import { DarkModeProvider } from "./utils/DarkModeProvider"
+import { DarkModeProvider } from "./components/DarkMode/DarkModeProvider"
 import { GlobalStyles } from "./utils/theme"
-import { Articles } from "./utils/articleFetch"
+import { Articles } from "./components/ArticleFetch"
 
 function App() {
   return (

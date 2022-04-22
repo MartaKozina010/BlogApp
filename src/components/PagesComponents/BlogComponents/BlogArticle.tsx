@@ -1,9 +1,9 @@
 import { useContext } from "react"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import { Articles } from "../../../utils/articleFetch"
+import { Articles } from "../../ArticleFetch"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { globalFont } from "../../../utils/theme"
+import { globalFont } from "../../../utils/fonts"
 import { ArticleHeader } from "../HomeComponents/ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`

@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { colors, globalFont } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ReadMore } from "./ReadMore"
+import { globalFont } from "../../../utils/fonts"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
