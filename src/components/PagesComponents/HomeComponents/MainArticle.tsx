@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ArticleHeader } from "./ArticleHeader"
 import { ReadMore } from "./ReadMore"
-import { globalFont } from "../../../utils/theme"
+import { globalFont } from "../../../utils/fonts"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { colors } from "../../../utils/theme"
+import { globalFont } from "../../../utils/fonts"
 
 const ReadMoreContainer = styled.div`
   display: relative;
@@ -8,7 +9,7 @@ const ReadMoreContainer = styled.div`
   margin-bottom: 2em;
 
   a {
-    font-size: 16px;
+    font-size: ${globalFont.p16};
     font-weight: 600;
     text-decoration: none;
     color: ${({ theme }) => theme.readMore};

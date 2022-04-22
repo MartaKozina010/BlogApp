@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Articles } from "../../../utils/articleFetch"
+import { Articles } from "../../ArticleFetch"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { colors } from "../../../utils/theme"
 import { SingleSmallArticle } from "./SingleSmallArticle"

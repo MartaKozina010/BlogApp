@@ -1,21 +1,19 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { Articles } from "../../utils/articleFetch"
+import { Articles } from "../ArticleFetch"
 import { colors } from "../../utils/theme"
-
-const ProperDisplay = styled.div`
-  display: inline-block;
-`
+import { SearchContext } from "./Header"
+import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 
 const ListContainer = styled.div`
-  max-width: 220px;
   width: 100%;
   background-color: white;
   position: absolute;
 
   a {
+    background-color: white;
     display: block;
     font-size: 12px;
     line-height: 1em;
@@ -38,52 +36,30 @@ const ListContainer = styled.div`
   }
 `
 
-const SearchComponent = styled.img`
-  margin: 0 2em;
-`
-
-const SearchInput = styled.input<{ isShowed: boolean }>`
+const SearchInput = styled.input`
+  padding-left: 2em;
   font-size: 12px;
-  height: 3.5em;
-  border: none;
-  border-radius: 50px;
-  width: 18em;
-  padding-left: 0.5em;
-  visibility: ${({ isShowed }) => !isShowed && "hidden"};
+  height: 3em;
+  border-radius: 6px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  margin: 1em 0;
 
   ::placeholder {
     color: ${colors.darkBlue};
-    font-weight: 500;
   }
 `
 
 export const SearchModule = () => {
-  type renderSearchType = {
-    display: boolean
-    icon: string
-  }
+  const context = useContext(SearchContext)
 
   const [renderList, setRenderList] = useState(false)
   const [input, setInput] = useState("")
-  const [renderSearch, setRenderSearch] = useState<renderSearchType>({
-    display: false,
-    icon: "loupe.png",
-  })
-
-  const searchInput = React.useRef<HTMLInputElement>(null)
-
-  const focusHandler = () => {
-    searchInput?.current?.focus()
-  }
 
   const listRendering = (event: React.ChangeEvent<HTMLInputElement>) => {
     input.trim() !== "" && setRenderList(true)
     setInput(event.target.value)
   }
-
-  useEffect(() => {
-    renderSearch.display && focusHandler()
-  }, [renderSearch.display])
 
   const hideAndClean = () => {
     setTimeout(() => {
@@ -93,13 +69,8 @@ export const SearchModule = () => {
     }, 500)
   }
 
-  const showSearch = () => {
-    setRenderSearch({ display: true, icon: "search.png" })
-    focusHandler()
-  }
-
   const hideSearch = () => {
-    setRenderSearch({ display: false, icon: "loupe.png" })
+    context.setRenderSearch(false)
   }
 
   const articles = useContext(Articles.Context)
@@ -114,24 +85,17 @@ export const SearchModule = () => {
   )
 
   return (
-    <>
-      <SearchComponent
-        src={renderSearch.icon}
-        onClick={renderSearch ? showSearch : hideSearch}
+    <ContentWidthLimiter>
+      <SearchInput
+        ref={context.ref}
+        value={input}
+        onChange={listRendering}
+        placeholder="search"
+        onBlur={hideAndClean}
       />
-      <ProperDisplay>
-        <SearchInput
-          isShowed={renderSearch.display}
-          ref={searchInput}
-          value={input}
-          onChange={listRendering}
-          placeholder="search"
-          onBlur={hideAndClean}
-        />
-        {renderList && (
-          <ListContainer onClick={hideAndClean}>{titlesList}</ListContainer>
-        )}
-      </ProperDisplay>
-    </>
+      {renderList && (
+        <ListContainer onClick={hideAndClean}>{titlesList}</ListContainer>
+      )}
+    </ContentWidthLimiter>
   )
 }
