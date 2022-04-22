@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
+import { globalFont } from "../../../utils/theme"
 
 const FaqItemContainer = styled.div`
   margin-bottom: 1em;
@@ -19,7 +20,7 @@ const Label = styled.div<{ invert: boolean }>`
 `
 
 const Number = styled.p`
-  font-size: 30px;
+  font-size: ${globalFont.p25};
   color: ${({ theme }) => theme.paragraph};
   width: 5%;
   display: flex;
@@ -28,7 +29,7 @@ const Number = styled.p`
 `
 
 const Title = styled.p`
-  font-size: 18px;
+  font-size: ${globalFont.p18};
   color: ${({ theme }) => theme.paragraph};
   width: 95%;
 `

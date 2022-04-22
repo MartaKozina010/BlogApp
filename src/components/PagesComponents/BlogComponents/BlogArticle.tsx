@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import { Articles } from "../../../utils/articleFetch"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
+import { globalFont } from "../../../utils/theme"
 import { ArticleHeader } from "../HomeComponents/ArticleHeader"
 
 const ContentContainer = styled(ContentWidthLimiter)`
@@ -17,7 +18,7 @@ const ContentContainer = styled(ContentWidthLimiter)`
 const Text = styled.div`
   max-width: 830px;
   width: 100%;
-  font-size: 16px;
+  font-size: ${globalFont.p16};
   font-weight: 400;
   text-align: justify;
   padding-top: 0.7em;

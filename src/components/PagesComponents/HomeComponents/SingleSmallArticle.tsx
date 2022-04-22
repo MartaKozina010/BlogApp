@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/theme"
+import { colors, globalFont } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
 import { ReadMore } from "./ReadMore"
 
@@ -13,18 +13,18 @@ const ContentContainer = styled(ContentWidthLimiter)`
   height: 750px;
 
   h1 {
-    font-size: 24px;
+    font-size: ${globalFont.p18};
     font-weight: 500;
     padding: 0.6em 0;
   }
 
   p {
-    font-size: 16px;
+    font-size: ${globalFont.p16};
     font-weight: 400;
   }
 
   h5 {
-    font-size: 16px;
+    font-size: ${globalFont.p16};
     font-weight: 500;
     padding-top: 0.5em;
     color: ${({ theme }) => theme.subtitle};

@@ -1,102 +1,89 @@
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { SocialMediaLink, SocialMediaLogo } from "../../utils/SocialMedia"
+import { SocialMedia } from "../../utils/SocialMedia"
 import { FooterLine } from "./FooterLine"
-import { colors } from "../../utils/theme"
+import { colors, globalFont } from "../../utils/theme"
 
-//footer caly do poprawy -na nowo
+// const GlobalFonts = createGlobalStyle`
+// :root {
+//   --headerr: clamp(2rem, 4vw, 3rem);
+// }
+// `
 
 const FooterContainer = styled.div`
-  height: 397px;
   background-color: ${colors.darkBlue};
   display: flex;
-  align-items: end;
 `
 
 const ContentContainer = styled(ContentWidthLimiter)`
+  padding-top: 2%;
   display: flex;
-  flex-direction: row;
 `
 
-const ContactContainer = styled.div`
-  height: 95px;
-  max-width: 517px;
-  background-color: ${colors.sunnyYellow};
-  display: flex;
+const ContactP = styled.p`
+  font-size: ${globalFont.p16};
+  line-height: 28px;
   color: ${colors.darkBlue};
-  margin-top: 86px;
-
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 32px;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 28px;
-  }
 `
-const LogoContainer = styled.div`
-  p {
-    color: ${colors.paragraphWhite};
-    font-size: 16px;
-    line-height: 28px;
-    padding-top: 22px;
-    width: 400px;
-  }
+
+const ContactH = styled.h2`
+  font-size: ${globalFont.p18};
+  font-weight: 600;
+  color: ${colors.darkBlue};
+`
+
+const StyledP = styled.p`
+  color: ${colors.paragraphWhite};
+  font-size: ${globalFont.p16};
+  padding-top: 22px;
+`
+
+const StyledH1 = styled.h1`
+  font-size: ${globalFont.header};
+  font-weight: 600;
+  color: ${colors.paragraphWhite};
 `
 
 const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `
 
-const EmailContact = styled.div`
-  padding: 18px 0px 16px 36px;
+const ContactContainer = styled.div`
+  margin-top: 10%;
+  background-color: ${colors.sunnyYellow};
+  color: ${colors.darkBlue};
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `
 
-const PhoneContact = styled.div`
-  padding: 18px 0px 16px 29px;
+const ContactBox = styled.div`
+  padding: 0.5em;
 `
 
 const RightSide = styled.div`
-  color: ${colors.paragraphWhite};
-  padding-left: 200px;
+  margin-left: 20%;
   background-color: ${colors.darkBlue};
+  display: flex;
+  flex-direction: column;
 
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     display: none;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 28px;
-    width: 400px;
-  }
-
-  h1 {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 64px;
-    padding-bottom: 16px;
   }
 `
 
 const SocialMediaContainer = styled.div`
+  margin-top: 2%;
+  width: 20%;
   display: flex;
-  flex-direction: row;
-
-  a {
-    padding: 28px 28px 0px 0px;
-  }
+  justify-content: space-between;
 `
 
 const AllContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 80px;
+  margin-top: 2%;
 `
 
 export const Footer = () => {
@@ -105,44 +92,36 @@ export const Footer = () => {
       <FooterContainer>
         <ContentContainer>
           <LeftSide>
-            <LogoContainer>
-              <FinsweetLogo />
-              <p>
-                We are always open to discuss your project and improve your
-                online presence.
-              </p>
-            </LogoContainer>
+            <FinsweetLogo />
+            <StyledP>
+              We are always open to discuss your project and improve your online
+              presence.
+            </StyledP>
             <ContactContainer>
-              <EmailContact>
-                <h3>Email me at</h3>
-                <p>contact@website.com</p>
-              </EmailContact>
-              <PhoneContact>
-                <h3>Call us</h3>
-                <p>511453843</p>
-              </PhoneContact>
+              <ContactBox>
+                <ContactH>Email me at</ContactH>
+                <ContactP>contact@website.com</ContactP>
+              </ContactBox>
+              <ContactBox>
+                <ContactH>Call us</ContactH>
+                <ContactP>511453843</ContactP>
+              </ContactBox>
             </ContactContainer>
           </LeftSide>
           <RightSide>
-            <h1>Let's talk!</h1>
-            <p>
-              We are always open to discuss your project, improve your online
-              presence and help with your UX/UI design challanges.
-            </p>
-            <SocialMediaContainer>
-              <a href={SocialMediaLink.facebook}>
-                <SocialMediaLogo logo="facebook" />
-              </a>
-              <a href={SocialMediaLink.twitter}>
-                <SocialMediaLogo logo="twitter" />
-              </a>
-              <a href={SocialMediaLink.instagram}>
-                <SocialMediaLogo logo="instagram" />
-              </a>
-              <a href={SocialMediaLink.linkedin}>
-                <SocialMediaLogo logo="linkedin" />
-              </a>
-            </SocialMediaContainer>
+            <StyledH1>Let's talk!</StyledH1>
+            <div>
+              <StyledP>
+                We are always open to discuss your project, improve your online
+                presence and help with your UX/UI design challanges.
+              </StyledP>
+              <SocialMediaContainer>
+                <SocialMedia logo="facebook" />
+                <SocialMedia logo="twitter" />
+                <SocialMedia logo="instagram" />
+                <SocialMedia logo="linkedin" />
+              </SocialMediaContainer>
+            </div>
           </RightSide>
         </ContentContainer>
       </FooterContainer>
