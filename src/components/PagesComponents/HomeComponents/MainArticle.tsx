@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { colors } from "../../../utils/theme"
 import { ContentWidthLimiter } from "../../../utils/ContentWidthLimiter"
-import { ArticleHeader, ArticleHeaderProps } from "./ArticleHeader"
+import { ArticleHeader } from "./ArticleHeader"
 import { ReadMore } from "./ReadMore"
+import { globalFont } from "../../../utils/theme"
 
 const ContentContainer = styled(ContentWidthLimiter)`
   display: flex;
@@ -14,7 +14,7 @@ const ContentContainer = styled(ContentWidthLimiter)`
 `
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: ${globalFont.p16};
   font-weight: 400;
   text-align: center;
   padding-top: 2em;

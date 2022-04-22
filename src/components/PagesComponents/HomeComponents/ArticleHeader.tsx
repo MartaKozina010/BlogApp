@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { globalFont } from "../../../utils/theme"
 
 const ContentContainer = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const ContentContainer = styled.div`
   h1 {
     width: 100%;
     max-width: 1000px;
-    font-size: 48px;
+    font-size: ${globalFont.header};
     font-weight: 600;
     padding-bottom: 0.4em;
     text-align: center;
@@ -37,7 +38,7 @@ const DateAuthorContainer = styled.div`
   display: flex;
 
   p {
-    font-size: 16px;
+    font-size: ${globalFont.p16};
     font-weight: 500;
     padding-right: 1em;
     color: ${({ theme }) => theme.subtitle};

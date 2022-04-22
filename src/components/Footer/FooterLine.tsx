@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
-import { colors } from "../../utils/theme"
+import { colors, globalFont } from "../../utils/theme"
 
 const FooterLineContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const FooterLineContainer = styled.div`
   padding: 1em;
   background-color: ${colors.white};
   color: ${colors.darkBlue};
-  font-size: 15px;
+  font-size: ${globalFont.p16};
   font-weight: 500;
 `
 
@@ -25,10 +25,13 @@ const ContentContainer = styled(ContentWidthLimiter)`
 
 const StyledP = styled.p`
   font-weight: 600;
+  text-align: center;
 `
 
 const Webmarks = styled.div`
   display: flex;
+  width: 40%;
+  justify-content: space-between;
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -39,9 +42,8 @@ const Webmarks = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${colors.darkBlue};
-  font-size: 15px;
+  font-size: ${globalFont.p16};
   font-weight: 500;
-  margin-right: 32px;
 
   &:hover {
     text-decoration: underline;
