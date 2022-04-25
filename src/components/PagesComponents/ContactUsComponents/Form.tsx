@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Formik, Form, FieldArray, Field } from "formik"
 import * as Yup from "yup"
 import MuiAlert, { AlertProps } from "@mui/material/Alert"
@@ -7,6 +7,8 @@ import { CheckboxWithLabel, Select, TextField } from "formik-mui"
 import { FormControl, MenuItem } from "@mui/material"
 import Snackbar from "@mui/material/Snackbar"
 import styled from "styled-components"
+import { DarkThemeContext } from "../../DarkMode/DarkModeProvider"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 const FormBox = styled.div`
   width: 100%;
@@ -82,7 +84,21 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
 })
 
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+})
+
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+})
+
 export const SignupForm = () => {
+  const isDarkMode = useContext(DarkThemeContext).isDarkMode
+
   const [open, setOpen] = React.useState(false)
 
   const handleClose = (
@@ -96,7 +112,7 @@ export const SignupForm = () => {
   }
 
   return (
-    <>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
           The message has been sent!
@@ -219,6 +235,6 @@ export const SignupForm = () => {
           )}
         />
       </FormBox>
-    </>
+    </ThemeProvider>
   )
 }
