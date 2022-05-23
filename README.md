@@ -1,1 +1,1 @@
-This app uses NewsAPI and it doesn't have sense to publish it as gh-page. Since 22 May 2020 they changed the liberties of the free developer keys and now they reject any request using that key that is not coming from localhost.
+This app uses NewsAPI and it doesn't have sense to publish it as gh-page. Since 22 May 2020 they changed the liberties of the free developer keys and now they reject any request using that key that is not coming from localhost (got 426 error).
