@@ -1,4 +1,4 @@
-import { FinsweetLogo } from "../../utils/finsweetLogo"
+import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { colors } from "../../utils/theme"
