@@ -92,8 +92,7 @@ export const SearchModule = () => {
         <Link key={el.title} to={`/BlogApp/${el.index}`}>
           {el.title}
         </Link>
-      ))
-  ) : (
+      )) : (
     <div>No result found</div>
   )
 
