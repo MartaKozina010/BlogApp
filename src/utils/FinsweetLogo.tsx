@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const FinsweetLogo = () => {
   return (
-    <Link to="/">
+    <Link to="/BlogApp">
       <svg
         width="122"
         height="28"

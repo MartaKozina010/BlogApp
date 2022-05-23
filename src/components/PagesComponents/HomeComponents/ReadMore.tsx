@@ -28,7 +28,7 @@ type ReadMoreType = {
 export const ReadMore = (props: ReadMoreType) => {
   return (
     <ReadMoreContainer>
-      <Link to={`/${props.articleIndex}`}>Read more →</Link>
+      <Link to={`/BlogApp/${props.articleIndex}`}>Read more →</Link>
     </ReadMoreContainer>
   )
 }

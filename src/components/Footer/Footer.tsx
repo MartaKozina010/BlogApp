@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { FinsweetLogo } from "../../utils/finsweetLogo"
+import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { SocialMedia } from "../../utils/socialMedia"
 import { FooterLine } from "./FooterLine"
