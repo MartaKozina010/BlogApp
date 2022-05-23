@@ -53,7 +53,9 @@ export const ArticleContainer = () => {
         />
       ))
   ) : (
-    <div>Loading...</div>
+    <ContentWidthLimiter>
+      <div>Loading...</div>
+    </ContentWidthLimiter>
   )
 
   return (

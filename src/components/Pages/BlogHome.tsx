@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { Articles } from "../ArticleFetch"
 import { ArticleContainer } from "../PagesComponents/HomeComponents/ArticleContainer"
 import { MainArticle } from "../PagesComponents/HomeComponents/MainArticle"
@@ -18,6 +19,8 @@ export const BlogHome = () => {
       <ArticleContainer />
     </>
   ) : (
-    <div>Loading...</div>
+    <ContentWidthLimiter>
+      <div>Loading...</div>
+    </ContentWidthLimiter>
   )
 }

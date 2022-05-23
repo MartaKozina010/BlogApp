@@ -189,7 +189,7 @@ export const Header: React.FC = () => {
           </RightContainer>
         </ContentContainer>
       </HeaderContainer>
-      {mobileMenu && !display1150 && (
+      {isMobileMenu && !display1150 && (
         <VerticalMenu>
           <CustomLink to="/BlogApp">Blog</CustomLink>
           <CustomLink to="/BlogApp/aboutUs">About us</CustomLink>
