@@ -2,13 +2,7 @@ import { FinsweetLogo } from "../../utils/FinsweetLogo"
 import styled from "styled-components"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 import { colors } from "../../utils/theme"
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  Dispatch,
-  SetStateAction,
-} from "react"
+import React, { useState, useEffect, Dispatch, SetStateAction } from "react"
 import { Link, LinkProps, useMatch, useResolvedPath } from "react-router-dom"
 import { DarkModeSwitch } from "../DarkMode/DarkModeSwitch"
 import { SearchModule } from "./SearchList"
@@ -55,7 +49,7 @@ const VerticalMenu = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 1em;
-  border: 1px solid red;
+  background-color: ${colors.sunnyYellowOpacity};
 
   a:hover {
     text-decoration: underline;
@@ -103,7 +97,7 @@ export const Header: React.FC = () => {
     )
   }
 
-  const [mobileMenu, showMobileMenu] = useState(false)
+  const [isMobileMenu, setIsMobileMenu] = useState(false)
 
   const CustomContactUsLink = ({ children, ...props }: LinkProps) => {
     const resolved = useResolvedPath(props.to)
@@ -118,14 +112,6 @@ export const Header: React.FC = () => {
 
   const [renderSearch, setRenderSearch] = useState(false)
 
-  const focusHandler = () => {
-    searchInput?.current?.focus()
-  }
-
-  useEffect(() => {
-    renderSearch && focusHandler()
-  }, [renderSearch])
-
   const showSearch = () => {
     setRenderSearch(true)
     focusHandler()
@@ -135,13 +121,40 @@ export const Header: React.FC = () => {
     setRenderSearch(false)
   }
 
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  const focusHandler = () => {
+    inputRef?.current?.focus()
+  }
+
+  useEffect(() => {
+    renderSearch && focusHandler()
+  }, [renderSearch])
+
+  const menuRef = React.useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const checkIfClickedOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenu &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenu(!isMobileMenu)
+      }
+    }
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [isMobileMenu])
+
   const display1150 = useMediaQuery("(min-width: 1150px)")
-  const searchInput = React.useRef<HTMLInputElement>(null)
 
   return (
     <SearchContext.Provider
       value={{
-        ref: searchInput,
+        ref: inputRef,
         setRenderSearch: setRenderSearch,
       }}
     >
@@ -164,7 +177,7 @@ export const Header: React.FC = () => {
               <MenuIcon
                 sx={{ color: "#BBBBCB", cursor: "pointer" }}
                 fontSize="large"
-                onClick={() => showMobileMenu(!mobileMenu)}
+                onClick={() => setIsMobileMenu(!isMobileMenu)}
               />
             )}
             <DarkModeSwitch />

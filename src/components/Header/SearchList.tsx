@@ -8,9 +8,9 @@ import { SearchContext } from "./Header"
 import { ContentWidthLimiter } from "../../utils/ContentWidthLimiter"
 
 const ListContainer = styled.div`
-  width: 100%;
   background-color: white;
   position: absolute;
+  width: 100%;
 
   a {
     background-color: white;
@@ -23,6 +23,7 @@ const ListContainer = styled.div`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.paragraph};
     padding-bottom: 0.5em;
+    width: 100%;
   }
 
   a:before {
@@ -33,10 +34,19 @@ const ListContainer = styled.div`
     background-color: ${({ theme }) => theme.searchListHover};
     text-decoration: none;
     color: ${({ theme }) => theme.paragraph};
+    width: 100%;
   }
 `
 
+const WidthManagement = styled.div`
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid pink;
+`
+
 const SearchInput = styled.input`
+  box-sizing: border-box;
   padding-left: 2em;
   font-size: 12px;
   height: 3em;
@@ -83,23 +93,23 @@ export const SearchModule = () => {
         <Link key={el.title} to={`/BlogApp/${el.index}`}>
           {el.title}
         </Link>
-      ))
-  ) : (
-    <div>No result found</div>
-  )
+      )) : <div>No result found</div>
+
 
   return (
     <ContentWidthLimiter>
-      <SearchInput
-        ref={context.ref}
-        value={input}
-        onChange={listRendering}
-        placeholder="search"
-        onBlur={hideAndClean}
-      />
-      {renderList && (
-        <ListContainer onClick={hideAndClean}>{titlesList}</ListContainer>
-      )}
+      <WidthManagement>
+        <SearchInput
+          ref={context.ref}
+          value={input}
+          onChange={listRendering}
+          placeholder="search"
+          onBlur={hideAndClean}
+        />
+        {renderList && (
+          <ListContainer onClick={hideAndClean}>{titlesList}</ListContainer>
+        )}
+      </WidthManagement>
     </ContentWidthLimiter>
   )
 }
