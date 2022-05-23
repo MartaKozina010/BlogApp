@@ -91,10 +91,7 @@ export const SearchModule = () => {
       .map((el) => (
         <Link key={el.title} to={`/BlogApp/${el.index}`}>
           {el.title}
-        </Link>
-      )) : (
-    <div>No result found</div>
-  )
+        </Link>)) : <div>No result found</div>
 
   return (
     <ContentWidthLimiter>
