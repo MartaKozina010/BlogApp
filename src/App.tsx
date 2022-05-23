@@ -21,13 +21,13 @@ function App() {
         <Header />
         <GlobalStyles />
         <Routes>
-          <Route path="/" element={<BlogHome />} />
-          <Route path="/:id" element={<Blog />} />
-          <Route path="aboutUs" element={<AboutUs />} />
-          <Route path="features" element={<Features />} />
-          <Route path="pricing" element={<Pricing />} />
-          <Route path="faq" element={<Faq />} />
-          <Route path="contactUs" element={<ContactUs />} />
+          <Route path="/BlogApp" element={<BlogHome />} />
+          <Route path="/BlogApp/:id" element={<Blog />} />
+          <Route path="/BlogApp/aboutUs" element={<AboutUs />} />
+          <Route path="/BlogApp/features" element={<Features />} />
+          <Route path="/BlogApp/pricing" element={<Pricing />} />
+          <Route path="/BlogApp/faq" element={<Faq />} />
+          <Route path="/BlogApp/contactUs" element={<ContactUs />} />
         </Routes>
         <Footer />
       </DarkModeProvider>

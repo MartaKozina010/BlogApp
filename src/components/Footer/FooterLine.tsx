@@ -58,11 +58,11 @@ export const FooterLine = () => {
       <ContentContainer>
         <StyledP>Copyright 2021, Finsweet.com</StyledP>
         <Webmarks>
-          <StyledLink to="/">Blog</StyledLink>
-          <StyledLink to="aboutUs">About us</StyledLink>
-          <StyledLink to="features">Features</StyledLink>
-          <StyledLink to="pricing">Pricing</StyledLink>
-          <StyledLink to="faq">FAQ</StyledLink>
+          <StyledLink to="/BlogApp">Blog</StyledLink>
+          <StyledLink to="/BlogApp/aboutUs">About us</StyledLink>
+          <StyledLink to="/BlogApp/features">Features</StyledLink>
+          <StyledLink to="/BlogApp/pricing">Pricing</StyledLink>
+          <StyledLink to="/BlogApp/faq">FAQ</StyledLink>
         </Webmarks>
       </ContentContainer>
     </FooterLineContainer>

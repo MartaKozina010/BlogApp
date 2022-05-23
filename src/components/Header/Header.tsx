@@ -164,12 +164,12 @@ export const Header: React.FC = () => {
           <RightContainer>
             {display1150 ? (
               <HorizontalMenu>
-                <CustomLink to="/">Blog</CustomLink>
-                <CustomLink to="aboutUs">About us</CustomLink>
-                <CustomLink to="features">Features</CustomLink>
-                <CustomLink to="pricing">Pricing</CustomLink>
-                <CustomLink to="faq">FAQ</CustomLink>
-                <CustomContactUsLink to="contactUs">
+                <CustomLink to="/BlogApp">Blog</CustomLink>
+                <CustomLink to="/BlogApp/aboutUs">About us</CustomLink>
+                <CustomLink to="/BlogApp/features">Features</CustomLink>
+                <CustomLink to="/BlogApp/pricing">Pricing</CustomLink>
+                <CustomLink to="/BlogApp/faq">FAQ</CustomLink>
+                <CustomContactUsLink to="/BlogApp/contactUs">
                   Contact us
                 </CustomContactUsLink>
               </HorizontalMenu>
@@ -189,14 +189,14 @@ export const Header: React.FC = () => {
           </RightContainer>
         </ContentContainer>
       </HeaderContainer>
-      {isMobileMenu && !display1150 && (
-        <VerticalMenu ref={menuRef} onClick={() => setIsMobileMenu(false)}>
-          <CustomLink to="/">Blog</CustomLink>
-          <CustomLink to="aboutUs">About us</CustomLink>
-          <CustomLink to="features">Features</CustomLink>
-          <CustomLink to="pricing">Pricing</CustomLink>
-          <CustomLink to="faq">FAQ</CustomLink>
-          <CustomLink to="contactUs">Contact us</CustomLink>
+      {mobileMenu && !display1150 && (
+        <VerticalMenu>
+          <CustomLink to="/BlogApp">Blog</CustomLink>
+          <CustomLink to="/BlogApp/aboutUs">About us</CustomLink>
+          <CustomLink to="/BlogApp/features">Features</CustomLink>
+          <CustomLink to="/BlogApp/pricing">Pricing</CustomLink>
+          <CustomLink to="/BlogApp/faq">FAQ</CustomLink>
+          <CustomLink to="/BlogApp/contactUs">Contact us</CustomLink>
         </VerticalMenu>
       )}
       {renderSearch && <SearchModule />}
