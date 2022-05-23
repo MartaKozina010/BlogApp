@@ -20,7 +20,7 @@ export const ContactUs = () => {
     <ContentWidthLimiter>
       <ContactUsBox>
         <SignupForm />
-        <ContactImg src="contactR.jpg" />
+        <ContactImg src="/BlogApp/contactR.jpg" />
       </ContactUsBox>
     </ContentWidthLimiter>
   )

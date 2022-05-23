@@ -79,7 +79,7 @@ export const SearchModule = () => {
     articles.articles
       .map((el, index) => ({ ...el, index }))
       .filter((el) => el.title.toLowerCase().includes(input.toLowerCase()))
-      .map((el) => <Link to={`/${el.index}`}>{el.title}</Link>)
+      .map((el) => <Link to={`/BlogApp/${el.index}`}>{el.title}</Link>)
   ) : (
     <div>No result found</div>
   )

@@ -69,7 +69,7 @@ export const SingleSmallArticle = (props: SingleSmallArticleProps) => {
       </ImageContainer>
       <DateContainer>
         <h5>{props.postedDate.toDateString()}</h5>
-        <img src="pluss.png" />
+        <img src="/BlogApp/pluss.png" />
       </DateContainer>
       <h1>{props.title}</h1>
       <Description>{props.description}</Description>
